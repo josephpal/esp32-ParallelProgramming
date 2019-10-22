@@ -1,0 +1,7 @@
+# INSTALL
+
+src:    https://linuxconfig.org/how-to-install-latex-on-ubuntu-18-04-bionic-beaver-linux
+        https://www.youtube.com/watch?v=gFAQd0ueIMc&list=PLCRFsOKSM7eNGNghvT6QdzsDYwSTZxqjC&index=1        
+
+sudo apt-get install texlive-base texlive-latex-recommended texlive texlive-latex-extra
+sudo apt install texstudio gummi

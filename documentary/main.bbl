@@ -1,0 +1,741 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{book3}{book}{}
+      \name{author}{2}{}{%
+        {{hash=bd1c08c7e6edca799877a0bd59b615a8}{%
+           family={Acar},
+           familyi={A\bibinitperiod},
+           given={Umut\bibnamedelima A.},
+           giveni={U\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=32a0460996f7163915e892129cadc85b}{%
+           family={Blelloch},
+           familyi={B\bibinitperiod},
+           given={Guy\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Pittsburgh, USA}%
+      }
+      \list{publisher}{1}{%
+        {Carnegie Mellon University, Department of Computer Science}%
+      }
+      \strng{namehash}{67c0381cda5d423563361c50f00699fe}
+      \strng{fullhash}{67c0381cda5d423563361c50f00699fe}
+      \strng{bibnamehash}{67c0381cda5d423563361c50f00699fe}
+      \strng{authorbibnamehash}{67c0381cda5d423563361c50f00699fe}
+      \strng{authornamehash}{67c0381cda5d423563361c50f00699fe}
+      \strng{authorfullhash}{67c0381cda5d423563361c50f00699fe}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{title}{Algorithms: Parallel and Sequential}
+      \field{year}{2019}
+    \endentry
+    \entry{article8}{article}{}
+      \name{author}{2}{}{%
+        {{hash=23c19fefefe2b35d6fc2a7a49268da87}{%
+           family={Buluç},
+           familyi={B\bibinitperiod},
+           given={Aydin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d487fe0a0a07ae0f313d6e0a986b6a75}{%
+           family={Gilbert},
+           familyi={G\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{a21547e655c6c958aa914faee507da87}
+      \strng{fullhash}{a21547e655c6c958aa914faee507da87}
+      \strng{bibnamehash}{a21547e655c6c958aa914faee507da87}
+      \strng{authorbibnamehash}{a21547e655c6c958aa914faee507da87}
+      \strng{authornamehash}{a21547e655c6c958aa914faee507da87}
+      \strng{authorfullhash}{a21547e655c6c958aa914faee507da87}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{month}{01}
+      \field{title}{Highly Parallel Sparse Matrix-Matrix Multiplication}
+      \field{volume}{abs/1006.2183}
+      \field{year}{2010}
+    \endentry
+    \entry{misc1}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d06ce85033a3091210597e2ceb27fafb}{%
+           family={Chasnov},
+           familyi={C\bibinitperiod},
+           given={Jeffrey\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{2}{%
+        {The Hong Kong University of Science}%
+        {Technology}%
+      }
+      \list{publisher}{1}{%
+        {Department of Mathematics}%
+      }
+      \strng{namehash}{d06ce85033a3091210597e2ceb27fafb}
+      \strng{fullhash}{d06ce85033a3091210597e2ceb27fafb}
+      \strng{bibnamehash}{d06ce85033a3091210597e2ceb27fafb}
+      \strng{authorbibnamehash}{d06ce85033a3091210597e2ceb27fafb}
+      \strng{authornamehash}{d06ce85033a3091210597e2ceb27fafb}
+      \strng{authorfullhash}{d06ce85033a3091210597e2ceb27fafb}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Numerical Methods}
+      \field{year}{2012}
+    \endentry
+    \entry{internet2}{online}{}
+      \name{author}{1}{}{%
+        {{hash=efb302a2ae5242c96f5214375fbbb7b0}{%
+           family={Edgar},
+           familyi={E\bibinitperiod},
+           given={Gabriel},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{efb302a2ae5242c96f5214375fbbb7b0}
+      \strng{fullhash}{efb302a2ae5242c96f5214375fbbb7b0}
+      \strng{bibnamehash}{efb302a2ae5242c96f5214375fbbb7b0}
+      \strng{authorbibnamehash}{efb302a2ae5242c96f5214375fbbb7b0}
+      \strng{authornamehash}{efb302a2ae5242c96f5214375fbbb7b0}
+      \strng{authorfullhash}{efb302a2ae5242c96f5214375fbbb7b0}
+      \field{sortinit}{E}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Introduction to Parallel Computing}
+      \verb{urlraw}
+      \verb http://www2.cs.uh.edu/~gabriel/courses/mpicourse_03_06/Introduction.pdf
+      \endverb
+      \verb{url}
+      \verb http://www2.cs.uh.edu/~gabriel/courses/mpicourse_03_06/Introduction.pdf
+      \endverb
+    \endentry
+    \entry{internet1}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e371df85c0d4dc5a428209ffc730447a}{%
+           family={Engelen},
+           familyi={E\bibinitperiod},
+           given={Prof.\bibnamedelimi Robert},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+      }
+      \strng{namehash}{e371df85c0d4dc5a428209ffc730447a}
+      \strng{fullhash}{e371df85c0d4dc5a428209ffc730447a}
+      \strng{bibnamehash}{e371df85c0d4dc5a428209ffc730447a}
+      \strng{authorbibnamehash}{e371df85c0d4dc5a428209ffc730447a}
+      \strng{authornamehash}{e371df85c0d4dc5a428209ffc730447a}
+      \strng{authorfullhash}{e371df85c0d4dc5a428209ffc730447a}
+      \field{sortinit}{E}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Parallel Programming Models}
+      \verb{urlraw}
+      \verb https://www.cs.fsu.edu/~engelen/courses/HPC/Models.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.cs.fsu.edu/~engelen/courses/HPC/Models.pdf
+      \endverb
+    \endentry
+    \entry{article9}{article}{}
+      \name{author}{6}{}{%
+        {{hash=4225292f4e4accf1760f6e8d5a4a572f}{%
+           family={Holt},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7f65a9ac3a694c018834400a81ff5f8e}{%
+           family={Agarwal},
+           familyi={A\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6825a161eaa97034a27ef86eb2e8c23a}{%
+           family={Brehmer},
+           familyi={B\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3d75de11cd418803acc284b295568dc8}{%
+           family={Domeika},
+           familyi={D\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=967813401de3253e4f96aa0ebb68d22c}{%
+           family={Griffin},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=698b4109bca47c0772ad99b2485cbc2a}{%
+           family={Schirrmeister},
+           familyi={S\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{f07c1e6e0746db0092446cac0846c7a5}
+      \strng{fullhash}{ed6100037c075b9e8f70a2dca661a192}
+      \strng{bibnamehash}{f07c1e6e0746db0092446cac0846c7a5}
+      \strng{authorbibnamehash}{f07c1e6e0746db0092446cac0846c7a5}
+      \strng{authornamehash}{f07c1e6e0746db0092446cac0846c7a5}
+      \strng{authorfullhash}{ed6100037c075b9e8f70a2dca661a192}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Micro}
+      \field{month}{5}
+      \field{number}{3}
+      \field{title}{Software Standards for the Multicore Era}
+      \field{volume}{29}
+      \field{year}{2009}
+      \field{pages}{40\bibrangedash 51}
+      \range{pages}{12}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1109/MM.2009.48
+      \endverb
+    \endentry
+    \entry{inproceedings1}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=9b598582eb9d37953e3c0ee15656a9a2}{%
+           family={Ivković},
+           familyi={I\bibinitperiod},
+           given={Jovan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3924124c17cf55e9b86e94586c2ab0ce}{%
+           family={Ivković},
+           familyi={I\bibinitperiod},
+           given={Jelena},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a3be1c0448d55968614063ac29912d1}
+      \strng{fullhash}{5a3be1c0448d55968614063ac29912d1}
+      \strng{bibnamehash}{5a3be1c0448d55968614063ac29912d1}
+      \strng{authorbibnamehash}{5a3be1c0448d55968614063ac29912d1}
+      \strng{authornamehash}{5a3be1c0448d55968614063ac29912d1}
+      \strng{authorfullhash}{5a3be1c0448d55968614063ac29912d1}
+      \field{sortinit}{I}
+      \field{sortinithash}{320bc8fe8101b9376f9f21cd507de0e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{03}
+      \field{title}{Analysis of the performance of the new generation of 32-bit Microcontrollers for IoT and Big Data Application}
+      \field{year}{2017}
+    \endentry
+    \entry{article10}{article}{}
+      \name{author}{2}{}{%
+        {{hash=9d7b9ad9d48616fa321719bc306c883e}{%
+           family={Karniadakis},
+           familyi={K\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=9b6d19f4446e4560e17cd1763734578a}{%
+           family={Kirby},
+           familyi={K\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{65465b5045e5d96dff459e8ed8f2be93}
+      \strng{fullhash}{65465b5045e5d96dff459e8ed8f2be93}
+      \strng{bibnamehash}{65465b5045e5d96dff459e8ed8f2be93}
+      \strng{authorbibnamehash}{65465b5045e5d96dff459e8ed8f2be93}
+      \strng{authornamehash}{65465b5045e5d96dff459e8ed8f2be93}
+      \strng{authorfullhash}{65465b5045e5d96dff459e8ed8f2be93}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Parallel Scientific Computing in C++ and MPI : A Seamless Approach to Parallel Algorithms and their Implementation}
+      \field{year}{2003}
+      \verb{doi}
+      \verb 10.1017/CBO9780511812583
+      \endverb
+    \endentry
+    \entry{article5}{article}{}
+      \name{author}{11}{}{%
+        {{hash=e3615503fab1aad7c3f3cb37744456ac}{%
+           family={Krste},
+           familyi={K\bibinitperiod},
+           given={Asanović},
+           giveni={A\bibinitperiod}}}%
+        {{hash=08e85bbef0e036cd04202ae541686d23}{%
+           family={Ras},
+           familyi={R\bibinitperiod},
+           given={Bodik},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d0ba0639c26687e588d872919d5d0dab}{%
+           family={Bryan\bibnamedelima Christopher},
+           familyi={B\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Catanzaro},
+           giveni={C\bibinitperiod}}}%
+        {{hash=20091774c7170ffd7c84cd14ae047df2}{%
+           family={Joseph\bibnamedelima James},
+           familyi={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           given={Gebis},
+           giveni={G\bibinitperiod}}}%
+        {{hash=bc7d46a4d7de5fb89430e7c0e7d9a54e}{%
+           family={Parry},
+           familyi={P\bibinitperiod},
+           given={Husbands},
+           giveni={H\bibinitperiod}}}%
+        {{hash=01d5474247dd868c4cfbec7eccd36ea8}{%
+           family={Kurt},
+           familyi={K\bibinitperiod},
+           given={Keutzer},
+           giveni={K\bibinitperiod}}}%
+        {{hash=d595bb825414aa06e97cf7f3635247ad}{%
+           family={David\bibnamedelima A.},
+           familyi={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Patterson},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5cd81065a8e22cbee44a26be22951b36}{%
+           family={William\bibnamedelima Lester},
+           familyi={W\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Plishker},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1aaffab053d0d763d3adaa808bbce224}{%
+           family={John},
+           familyi={J\bibinitperiod},
+           given={Shalf},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e9b64a9cfa58d7fe4f9641132159e01c}{%
+           family={Samuel\bibnamedelima Webb},
+           familyi={S\bibinitperiod\bibinitdelim W\bibinitperiod},
+           given={Williams},
+           giveni={W\bibinitperiod}}}%
+        {{hash=6b2ccfb9abd68cc248cd5fc9e04e8f18}{%
+           family={Katherine\bibnamedelima A.},
+           familyi={K\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Yelick},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berkeley}%
+      }
+      \list{publisher}{1}{%
+        {EECS Department, University of California}%
+      }
+      \strng{namehash}{39a64af64468d7abd596ad13229ae671}
+      \strng{fullhash}{ec12eeaf0827db916d63dad8400eeefe}
+      \strng{bibnamehash}{39a64af64468d7abd596ad13229ae671}
+      \strng{authorbibnamehash}{39a64af64468d7abd596ad13229ae671}
+      \strng{authornamehash}{39a64af64468d7abd596ad13229ae671}
+      \strng{authorfullhash}{ec12eeaf0827db916d63dad8400eeefe}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Landscape of Parallel Computing Research: A View from Berkeley}
+      \field{year}{2006}
+      \verb{urlraw}
+      \verb https://www2.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.html
+      \endverb
+      \verb{url}
+      \verb https://www2.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.html
+      \endverb
+    \endentry
+    \entry{book2}{book}{}
+      \name{author}{4}{}{%
+        {{hash=efb90d78e35ff61d3bc639f5c6f3d822}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Vipin},
+           giveni={V\bibinitperiod}}}%
+        {{hash=e9c1b8f6a0132880631aee2d31ef1618}{%
+           family={Grama},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=eb28d32a9d24cc03164b0c6c1839959c}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={Anshul},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3db7df6401b206bb040d6735adbe81e2}{%
+           family={Karypis},
+           familyi={K\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{b7c541f9a77d9a688236095cbca7e604}
+      \strng{fullhash}{c2bd1a26f4f260f355e69b346936ecea}
+      \strng{bibnamehash}{b7c541f9a77d9a688236095cbca7e604}
+      \strng{authorbibnamehash}{b7c541f9a77d9a688236095cbca7e604}
+      \strng{authornamehash}{b7c541f9a77d9a688236095cbca7e604}
+      \strng{authorfullhash}{c2bd1a26f4f260f355e69b346936ecea}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Redwood City: Benjamin/Cummings}
+      \field{month}{01}
+      \field{title}{Introduction to parallel computing. Design and analysis of algorithms}
+      \field{volume}{2}
+      \field{year}{1994}
+    \endentry
+    \entry{article1}{article}{}
+      \name{author}{1}{}{%
+        {{hash=bc9206c5435eac9889bbf02d1326621c}{%
+           family={Marowka},
+           familyi={M\bibinitperiod},
+           given={Ami},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Jerusalem, Israel}%
+      }
+      \strng{namehash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{fullhash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{bibnamehash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{authorbibnamehash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{authornamehash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{authorfullhash}{bc9206c5435eac9889bbf02d1326621c}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Parallel Research Lab}
+      \field{title}{Analytic Comparison of Two Advanced C Language-Based Parallel Programming Models}
+      \field{year}{2004}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1109/ISPDC.2004.11
+      \endverb
+    \endentry
+    \entry{article4}{article}{}
+      \name{author}{1}{}{%
+        {{hash=bc9206c5435eac9889bbf02d1326621c}{%
+           family={Marowka},
+           familyi={M\bibinitperiod},
+           given={Ami},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{fullhash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{bibnamehash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{authorbibnamehash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{authornamehash}{bc9206c5435eac9889bbf02d1326621c}
+      \strng{authorfullhash}{bc9206c5435eac9889bbf02d1326621c}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE}
+      \field{title}{Think Parallel: Teaching Parallel Programming Today}
+      \field{year}{2008}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1109/MDSO.2008.24
+      \endverb
+    \endentry
+    \entry{article6}{article}{}
+      \name{author}{3}{}{%
+        {{hash=f9a05438c46c8aab52e6203ede5facd4}{%
+           family={Mattson},
+           familyi={M\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=aad49cc393cc861d63c85ed6b439d115}{%
+           family={Sanders},
+           familyi={S\bibinitperiod},
+           given={Beverly},
+           giveni={B\bibinitperiod}}}%
+        {{hash=21e91de8c2d65616ce50329bacecbab0}{%
+           family={Massingill},
+           familyi={M\bibinitperiod},
+           given={Berna},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd79f543c09a014c9465fb04c2cf9d17}
+      \strng{fullhash}{bd79f543c09a014c9465fb04c2cf9d17}
+      \strng{bibnamehash}{bd79f543c09a014c9465fb04c2cf9d17}
+      \strng{authorbibnamehash}{bd79f543c09a014c9465fb04c2cf9d17}
+      \strng{authornamehash}{bd79f543c09a014c9465fb04c2cf9d17}
+      \strng{authorfullhash}{bd79f543c09a014c9465fb04c2cf9d17}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0321228111}
+      \field{month}{09}
+      \field{title}{Patterns for Parallel Programming}
+      \field{year}{2004}
+    \endentry
+    \entry{internet3}{online}{}
+      \name{author}{2}{}{%
+        {{hash=478e6f50af69eea2cf244e1a50c47823}{%
+           family={Owens},
+           familyi={O\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5bacf2c4aaee27f8fc57c97de461af4e}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={U.C.},
+           giveni={U\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Los Angles, Carlifornia}%
+      }
+      \list{publisher}{1}{%
+        {SIGGRAPH}%
+      }
+      \strng{namehash}{23356d200eba090bb7bf5ddf3bdf87ec}
+      \strng{fullhash}{23356d200eba090bb7bf5ddf3bdf87ec}
+      \strng{bibnamehash}{23356d200eba090bb7bf5ddf3bdf87ec}
+      \strng{authorbibnamehash}{23356d200eba090bb7bf5ddf3bdf87ec}
+      \strng{authornamehash}{23356d200eba090bb7bf5ddf3bdf87ec}
+      \strng{authorfullhash}{23356d200eba090bb7bf5ddf3bdf87ec}
+      \field{sortinit}{O}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Parallel Programming Models Overview}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb http://s08.idav.ucdavis.edu/owens-parallel-prog-models-overview.pdf
+      \endverb
+      \verb{url}
+      \verb http://s08.idav.ucdavis.edu/owens-parallel-prog-models-overview.pdf
+      \endverb
+    \endentry
+    \entry{article2}{article}{}
+      \name{author}{6}{}{%
+        {{hash=5332690dbb67c819d0484ac7bc3e5130}{%
+           family={Sujatha},
+           familyi={S\bibinitperiod},
+           given={Kota},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0dcfc9495334944cc9e4a2958ece62fd}{%
+           family={A.\bibnamedelimi Arjuna},
+           familyi={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Rao},
+           giveni={R\bibinitperiod}}}%
+        {{hash=a88d26bf8508562f750a102b194182cd}{%
+           family={P.V.\bibnamedelimi Nageswara},
+           familyi={P\bibinitperiod\bibinitdelim N\bibinitperiod},
+           given={Rao},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ba9e2ae83ceca776b55389282d81d108}{%
+           family={V.G.},
+           familyi={V\bibinitperiod},
+           given={Sastry},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c75aea2da73b267fcf61add4dfefa444}{%
+           family={V.},
+           familyi={V\bibinitperiod},
+           given={Praneeta},
+           giveni={P\bibinitperiod}}}%
+        {{hash=d55da309022f0937afc2e24893262c72}{%
+           family={Raj\bibnamedelima Kumar},
+           familyi={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+           given={Bharat},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Guntur, India}%
+      }
+      \strng{namehash}{39aa7871e5808a572eff8091ea7463c7}
+      \strng{fullhash}{2f393fd21b8ba55f488595f18452361e}
+      \strng{bibnamehash}{39aa7871e5808a572eff8091ea7463c7}
+      \strng{authorbibnamehash}{39aa7871e5808a572eff8091ea7463c7}
+      \strng{authornamehash}{39aa7871e5808a572eff8091ea7463c7}
+      \strng{authorfullhash}{2f393fd21b8ba55f488595f18452361e}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE}
+      \field{title}{Multicore Parallel Processing Concepts for Effective Sorting and Searching}
+      \field{year}{2015}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1109/SPACES.2015.7058238
+      \endverb
+    \endentry
+    \entry{book1}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f6198255d0eed1ba484257c68508a274}{%
+           family={Thomas\bibnamedelima Rauber},
+           familyi={T\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Gudula\bibnamedelima R{ü}nger},
+           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Germany}%
+      }
+      \list{publisher}{1}{%
+        {Second Edition, Springer Verlag}%
+      }
+      \strng{namehash}{f6198255d0eed1ba484257c68508a274}
+      \strng{fullhash}{f6198255d0eed1ba484257c68508a274}
+      \strng{bibnamehash}{f6198255d0eed1ba484257c68508a274}
+      \strng{authorbibnamehash}{f6198255d0eed1ba484257c68508a274}
+      \strng{authornamehash}{f6198255d0eed1ba484257c68508a274}
+      \strng{authorfullhash}{f6198255d0eed1ba484257c68508a274}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Parallel Programming for Multicore and Cluster Systems}
+      \field{year}{2013}
+    \endentry
+    \entry{book4}{book}{}
+      \name{author}{4}{}{%
+        {{hash=f37b393564e895df695e4e4a17df5158}{%
+           family={Torquati},
+           familyi={T\bibinitperiod},
+           given={Massimo},
+           giveni={M\bibinitperiod}}}%
+        {{hash=be78c4921b4ee1015a4d05c9f1f15e55}{%
+           family={Bertels},
+           familyi={B\bibinitperiod},
+           given={Koen},
+           giveni={K\bibinitperiod}}}%
+        {{hash=38fee17f6438a3d055a46557fd61f3f5}{%
+           family={Karlsson},
+           familyi={K\bibinitperiod},
+           given={Sven},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6e0caeadaecf79133d357e73d09ff274}{%
+           family={Pacull},
+           familyi={P\bibinitperiod},
+           given={François},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{location}{2}{%
+        {New York, Heidelberg, Dordrecht}%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Springer Verlag}%
+      }
+      \strng{namehash}{ed74d9bebbc08fb5824f60ae2371d1f6}
+      \strng{fullhash}{2c6b240b499c576931c3a0bdcc3362b0}
+      \strng{bibnamehash}{ed74d9bebbc08fb5824f60ae2371d1f6}
+      \strng{authorbibnamehash}{ed74d9bebbc08fb5824f60ae2371d1f6}
+      \strng{authornamehash}{ed74d9bebbc08fb5824f60ae2371d1f6}
+      \strng{authorfullhash}{2c6b240b499c576931c3a0bdcc3362b0}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Smart Multicore Embedded Systems}
+      \field{year}{2014}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1007/978-1-4614-8800-2
+      \endverb
+    \endentry
+    \entry{article3}{article}{}
+      \name{author}{2}{}{%
+        {{hash=2bb3fd809db93ee0455bbe05b8933680}{%
+           family={Yang-Ming},
+           familyi={Y\bibinithyphendelim M\bibinitperiod},
+           given={Zhu},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=cd0169327b1c8267d8ec60072df537c4}{%
+           family={Steven\bibnamedelima M.},
+           familyi={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Cochoff},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{f61f05d0a9179dab1d29f40516d83b23}
+      \strng{fullhash}{f61f05d0a9179dab1d29f40516d83b23}
+      \strng{bibnamehash}{f61f05d0a9179dab1d29f40516d83b23}
+      \strng{authorbibnamehash}{f61f05d0a9179dab1d29f40516d83b23}
+      \strng{authornamehash}{f61f05d0a9179dab1d29f40516d83b23}
+      \strng{authorfullhash}{f61f05d0a9179dab1d29f40516d83b23}
+      \field{sortinit}{Y}
+      \field{sortinithash}{b8d711a035f7be9840c721c82920477e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE}
+      \field{title}{Medical Image Viewing on Multicore Platforms Using Parallel Computing Patterns}
+      \field{year}{2010}
+      \verb{doi}
+      \verb http://dx.doi.org/ 10.1109/MITP.2010.62
+      \endverb
+    \endentry
+    \entry{article7}{article}{}
+      \name{author}{1}{}{%
+        {{hash=680f079d1ec33aea037f1f903d511bc6}{%
+           family={{Zhang}},
+           familyi={Z\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{680f079d1ec33aea037f1f903d511bc6}
+      \strng{fullhash}{680f079d1ec33aea037f1f903d511bc6}
+      \strng{bibnamehash}{680f079d1ec33aea037f1f903d511bc6}
+      \strng{authorbibnamehash}{680f079d1ec33aea037f1f903d511bc6}
+      \strng{authornamehash}{680f079d1ec33aea037f1f903d511bc6}
+      \strng{authorfullhash}{680f079d1ec33aea037f1f903d511bc6}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Parallel and Distributed Systems}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{A Novel Parallel Scan for Multicore Processors and Its Application in Sparse Matrix-Vector Multiplication}
+      \field{volume}{23}
+      \field{year}{2012}
+      \field{pages}{397\bibrangedash 404}
+      \range{pages}{8}
+      \verb{doi}
+      \verb http://dx.doi.org/10.1109/TPDS.2011.174
+      \endverb
+    \endentry
+    \entry{inproceedings2}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=50541ce48b62a59478859829bdda8bad}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Nan},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{50541ce48b62a59478859829bdda8bad}
+      \strng{fullhash}{50541ce48b62a59478859829bdda8bad}
+      \strng{bibnamehash}{50541ce48b62a59478859829bdda8bad}
+      \strng{authorbibnamehash}{50541ce48b62a59478859829bdda8bad}
+      \strng{authornamehash}{50541ce48b62a59478859829bdda8bad}
+      \strng{authorfullhash}{50541ce48b62a59478859829bdda8bad}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{Working towards efficient parallel computing of integral images on multi-core processors}
+      \field{volume}{2}
+      \field{year}{2010}
+      \field{pages}{V2\bibrangedash 30}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/ICCET.2010.5485338
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

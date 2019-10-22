@@ -1,0 +1,75 @@
+\documentclass[12pt, twoside]{report}
+\setcounter{secnumdepth}{3}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, bindingoffset=6mm]{geometry}
+
+% formatting the header and the footer of the document
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO, LE]{Parallel Programming on Embedded Multicore System ESP32}
+\fancyfoot{}
+\fancyfoot[LE, RO]{\thepage}
+\fancyfoot[LO, CE]{Chapter \thechapter}
+\fancyfoot[CO, RE]{UPT Timișoara}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% including graphics, e.g. images
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% adding references system
+% note: for linux (gummi), it was necessary to install the following packages:
+%		- biber, biblatex, texlive-bibtex-extra, latexmk
+%		=> in gummi: Edit->Preferences->Compilation->latexmk
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+\title{
+	{Parallel Programming on Embedded Multicore System ESP32\bigskip}\\
+	{\large Universitatea Politehnica Timișoara\bigskip\bigskip}\\
+	{\includegraphics[width=50mm,scale=0.5]{upt_logo.png}}
+}
+\author{ Marian Belean\\ Franz Joseph Pal }
+\date{ WS2019/2020 \\ \today}
+
+\begin{document}
+
+\maketitle
+
+\pagenumbering{roman}
+
+\chapter*{Abstract}
+\input{chapters/abstract}
+
+\input{chapters/declaration}
+
+\tableofcontents
+
+\chapter{Introduction}
+\input{chapters/introduction}
+
+\pagenumbering{arabic}
+
+\chapter{Overview}
+\input{chapters/chapter02}
+
+\chapter{Parallel Programming in General}
+\input{chapters/chapter03}
+
+\chapter{Project documentation}
+\input{chapters/chapter04}
+
+\chapter{Conclusion}
+\input{chapters/conclusion}
+
+\appendix
+\chapter{Additional documents}
+\input{chapters/appendix}
+
+\printbibliography
+\nocite{*}
+
+\end{document}
