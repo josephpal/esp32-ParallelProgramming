@@ -1,7 +1,13 @@
 \section{Problem definition}
 
-...
+Compared to single-core execution of tasks, multi-core embedded hardware platforms like the ESP32\footnote{add. information: https://www.espressif.com/en/products/hardware/socs} provide the ability to develop advanced parallel computing software applications to reduce execution time and power consumption.
+
+On the one hand, a major problem is choosing the right hardware platform to meet the cost and size factor, and moreover, whether a single-core or multi-core calculation is required. Therefore, context switching time, power consumption and total execution time must be included in the evaluation.
+
+In order to develop an optimal solution, the hardware platform must be included in addition to the mathematical model of the problem itself. So in this case, suitable prerequisites and characteristics can be worked out in order to make an evaluation of "Parallel Computation Tasks on Embedded Multicore Systems" possible.
 
 \section{Objective of the documentation}
 
-...
+The main goal of this documentation is to focus on the current parallel programming techniques, depending on the execution time in general and the required mathematical model. For this purpose, an application which can compute different sections of the Mandelbrot fractal \parencite[see][p11]{article18} will be developed to compare single core and multi-core calculations. Before the practical implementation, an investigation based on parallel architectures and programming models will be conducted.
+
+The elaboration is diveded into three different chapters: In the first chapter, the results of the general research are presented [see \fref{chap:parallelprg}]. After that, the second chapter is pointing out the practical implemenation of the developed application on the ESP32 [see \fref{chap:documentation}]. In the end, the results including the webforntend and the automatic benchmark setup [see \fref{chap:conclusion}] will be discussed.
