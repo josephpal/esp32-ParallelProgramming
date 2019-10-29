@@ -1,0 +1,19 @@
+[0] Config.pm:302> INFO - This is Biber 2.9
+[0] Config.pm:305> INFO - Logfile is 'main.blg'
+[29] biber:313> INFO - === Tue Oct 29, 2019, 22:36:30
+[56] Biber.pm:371> INFO - Reading 'main.bcf'
+[128] Biber.pm:854> INFO - Using all citekeys in bib section 0
+[309] Biber.pm:3981> INFO - Processing section 0
+[354] Biber.pm:4154> INFO - Looking for bibtex format file 'references.bib' for section 0
+[364] bibtex.pm:1468> INFO - LaTeX decoding ...
+[450] bibtex.pm:1294> INFO - Found BibTeX data source 'references.bib'
+[675] Utils.pm:169> WARN - BibTeX subsystem: /tmp/h8BSSj45bu/references.bib_15620.utf8, line 198, warning: 75 characters of junk seen at toplevel
+[675] Utils.pm:169> WARN - BibTeX subsystem: /tmp/h8BSSj45bu/references.bib_15620.utf8, line 248, warning: 34 characters of junk seen at toplevel
+[675] Utils.pm:169> WARN - BibTeX subsystem: /tmp/h8BSSj45bu/references.bib_15620.utf8, line 315, warning: 61 characters of junk seen at toplevel
+[725] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[725] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[726] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[726] Biber.pm:3815> INFO - No sort tailoring available for locale 'en-US'
+[774] bbl.pm:617> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[795] bbl.pm:720> INFO - Output to main.bbl
+[796] Biber.pm:110> INFO - WARNINGS: 3
