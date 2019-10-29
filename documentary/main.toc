@@ -1,51 +1,51 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Introduction}{1}% 
+\contentsline {chapter}{\numberline {1}Introduction}{1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Overview}{2}% 
+\contentsline {chapter}{\numberline {2}Overview}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Problem definition}{2}% 
+\contentsline {section}{\numberline {2.1}Problem definition}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Objective of the documentation}{2}% 
+\contentsline {section}{\numberline {2.2}Objective of the documentation}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Parallel Programming in General}{3}% 
+\contentsline {chapter}{\numberline {3}Parallel Programming in General}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Basic Concept}{3}% 
+\contentsline {section}{\numberline {3.1}Basic Concept}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Principles of Parallel Computing}{5}% 
+\contentsline {subsection}{\numberline {3.1.1}Principles of Parallel Computing}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Definition of parallel mathematical computations}{6}% 
+\contentsline {section}{\numberline {3.2}Definition of parallel mathematical computations}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Parallel Computer Architecture}{7}% 
+\contentsline {section}{\numberline {3.3}Parallel Computer Architecture}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Flynn's Taxonomy of Parallel Architectures}{7}% 
+\contentsline {subsection}{\numberline {3.3.1}Flynn's Taxonomy of Parallel Architectures}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Thread Level Parallism}{7}% 
+\contentsline {subsection}{\numberline {3.3.2}Thread Level Parallism}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Parallel Programming Models}{7}% 
+\contentsline {section}{\numberline {3.4}Parallel Programming Models}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}Classification of Parallel Programming Models}{8}% 
+\contentsline {subsection}{\numberline {3.4.1}Classification of Parallel Programming Models}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.1.1}Process Interaction}{8}% 
+\contentsline {subsubsection}{\numberline {3.4.1.1}Process Interaction}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.1.2}Problem decomposition}{8}% 
+\contentsline {subsubsection}{\numberline {3.4.1.2}Problem decomposition}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Project documentation}{9}% 
+\contentsline {chapter}{\numberline {4}Project documentation}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Concept development}{9}% 
+\contentsline {section}{\numberline {4.1}Concept development}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Project structure}{10}% 
+\contentsline {section}{\numberline {4.2}Project structure}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Simple mathematical computation examples for Parallel Programming}{11}% 
+\contentsline {section}{\numberline {4.3}Simple mathematical computation examples for Parallel Programming}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Class diagramm}{12}% 
+\contentsline {section}{\numberline {4.4}Class diagramm}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}C++ Backend benchmark}{12}% 
+\contentsline {subsection}{\numberline {4.4.1}C++ Backend benchmark}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}Vuejs Frontend}{12}% 
+\contentsline {subsection}{\numberline {4.4.2}Vuejs Frontend}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Benchmark setup}{13}% 
+\contentsline {section}{\numberline {4.5}Benchmark setup}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Conclusion}{14}% 
+\contentsline {chapter}{\numberline {5}Conclusion}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Additional documents}{15}% 
+\contentsline {chapter}{\numberline {A}Additional documents}{15}

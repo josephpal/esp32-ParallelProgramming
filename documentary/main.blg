@@ -1,21 +1,19 @@
-[0] Config.pm:304> INFO - This is Biber 2.13
-[0] Config.pm:307> INFO - Logfile is 'main.blg'
-[46] biber-MSWIN64:315> INFO - === 
-[106] Biber.pm:375> INFO - Reading 'main.bcf'
-[209] Biber.pm:902> INFO - Using all citekeys in bib section 0
-[224] Biber.pm:4196> INFO - Processing section 0
-[262] Utils.pm:75> INFO - Globbing data source 'references.bib'
-[290] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
-[316] Biber.pm:4373> INFO - Looking for bibtex format file 'references.bib' for section 0
-[328] bibtex.pm:1462> INFO - LaTeX decoding ...
-[374] bibtex.pm:1281> INFO - Found BibTeX data source 'references.bib'
-[595] Utils.pm:300> WARN - BibTeX subsystem: C:\Users\Marian\AppData\Local\Temp\kHgvH3p9Vc\references.bib_15064.utf8, line 198, warning: 75 characters of junk seen at toplevel
-[595] Utils.pm:300> WARN - BibTeX subsystem: C:\Users\Marian\AppData\Local\Temp\kHgvH3p9Vc\references.bib_15064.utf8, line 248, warning: 34 characters of junk seen at toplevel
-[595] Utils.pm:300> WARN - BibTeX subsystem: C:\Users\Marian\AppData\Local\Temp\kHgvH3p9Vc\references.bib_15064.utf8, line 315, warning: 61 characters of junk seen at toplevel
-[643] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[643] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[643] Biber.pm:4024> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[643] Biber.pm:4030> INFO - No sort tailoring available for locale 'en-US'
-[715] bbl.pm:648> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[737] bbl.pm:751> INFO - Output to main.bbl
-[742] Biber.pm:110> INFO - WARNINGS: 3
+[0] Config.pm:302> INFO - This is Biber 2.9
+[0] Config.pm:305> INFO - Logfile is 'main.blg'
+[28] biber:313> INFO - === Tue Oct 29, 2019, 23:07:28
+[54] Biber.pm:371> INFO - Reading 'main.bcf'
+[140] Biber.pm:854> INFO - Using all citekeys in bib section 0
+[159] Biber.pm:3981> INFO - Processing section 0
+[174] Biber.pm:4154> INFO - Looking for bibtex format file 'references.bib' for section 0
+[178] bibtex.pm:1468> INFO - LaTeX decoding ...
+[223] bibtex.pm:1294> INFO - Found BibTeX data source 'references.bib'
+[437] Utils.pm:169> WARN - BibTeX subsystem: /tmp/g9SpPnPHNy/references.bib_17572.utf8, line 198, warning: 75 characters of junk seen at toplevel
+[437] Utils.pm:169> WARN - BibTeX subsystem: /tmp/g9SpPnPHNy/references.bib_17572.utf8, line 248, warning: 34 characters of junk seen at toplevel
+[437] Utils.pm:169> WARN - BibTeX subsystem: /tmp/g9SpPnPHNy/references.bib_17572.utf8, line 315, warning: 61 characters of junk seen at toplevel
+[484] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[485] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[485] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[485] Biber.pm:3815> INFO - No sort tailoring available for locale 'en-US'
+[526] bbl.pm:617> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[546] bbl.pm:720> INFO - Output to main.bbl
+[546] Biber.pm:110> INFO - WARNINGS: 3
