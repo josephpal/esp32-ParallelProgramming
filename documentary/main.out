@@ -1,0 +1,23 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Overview}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Problem definition}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Objective of the documentation}{chapter.2}% 4
+\BOOKMARK [0][-]{chapter.3}{Parallel Programming in General}{}% 5
+\BOOKMARK [1][-]{section.3.1}{Basic Concept}{chapter.3}% 6
+\BOOKMARK [2][-]{subsection.3.1.1}{Principles of Parallel Computing}{section.3.1}% 7
+\BOOKMARK [1][-]{section.3.2}{Definition of parallel mathematical computations}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.3}{Parallel Computer Architecture}{chapter.3}% 9
+\BOOKMARK [2][-]{subsection.3.3.1}{Flynn's Taxonomy of Parallel Architectures}{section.3.3}% 10
+\BOOKMARK [2][-]{subsection.3.3.2}{Thread Level Parallism}{section.3.3}% 11
+\BOOKMARK [1][-]{section.3.4}{Parallel Programming Models}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.4.1}{Classification of Parallel Programming Models}{section.3.4}% 13
+\BOOKMARK [0][-]{chapter.4}{Project documentation}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Concept development}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Project structure}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.3}{Simple mathematical computation examples for Parallel Programming}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.4}{Class diagramm}{chapter.4}% 18
+\BOOKMARK [2][-]{subsection.4.4.1}{C++ Backend benchmark}{section.4.4}% 19
+\BOOKMARK [2][-]{subsection.4.4.2}{Vuejs Frontend}{section.4.4}% 20
+\BOOKMARK [1][-]{section.4.5}{Benchmark setup}{chapter.4}% 21
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 22
+\BOOKMARK [0][-]{appendix.A}{Additional documents}{}% 23
