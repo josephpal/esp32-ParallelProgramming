@@ -1,57 +1,16 @@
-videos:
-- https://www.youtube.com/watch?v=jpVcCmh8sig
-- https://www.youtube.com/watch?v=KBxJ6xfT8Dk
+==============================================================================================================
+links:
+1) https://www.tutorialspoint.com/parallel_computer_architecture/parallel_computer_architecture_models.htm
+2) https://computing.llnl.gov/tutorials/parallel_comp/
+3) https://www.cs.cmu.edu/~15210/pasl.html
+4) https://en.wikipedia.org/wiki/Parallel_programming_model
+5) https://en.wikipedia.org/wiki/Model_of_computation
+6) https://www.cs.fsu.edu/~engelen/courses/HPC/Models.pdf
+7) 
 
-research gate:
-- https://www.researchgate.net/publication/316173015_Analysis_of_the_performance_of_the_new_generation_of_32-bit_Microcontrollers_for_IoT_and_Big_Data_Application
-- 
-
-webpages:
-- http://www.robinscheibler.org/2017/12/12/esp32-fft.html
-- https://ocw.mit.edu/courses/mathematics/18-337j-parallel-computing-fall-2011/
-- https://techtutorialsx.com/2017/05/16/esp32-dual-core-execution-speedup/
-- https://www.instructables.com/id/SpeedTest-Arduinos-ESP32-8266s-STM32/
-- https://randomnerdtutorials.com/esp32-dual-core-arduino-ide/
-- https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019
-- https://github.com/espressif/arduino-esp32/issues/2814
-
-- https://computing.llnl.gov/tutorials/parallel_comp/
-- https://www.cs.cmu.edu/~15210/pasl.html
-
-parallel programming model: - https://en.wikipedia.org/wiki/Parallel_programming_model
-                            - https://en.wikipedia.org/wiki/Model_of_computation
-                            - https://www.cs.fsu.edu/~engelen/courses/HPC/Models.pdf
-
-parallel computation hardware: - https://www.tutorialspoint.com/parallel_computer_architecture/parallel_computer_architecture_models.htm
-                               -
-parallel computation software: - 
-
-ESP32:
-- http://esp32.net/
-
-
-parallel computing examnples:
-- https://helloacm.com/c-coding-exercise-parallel-for-monte-carlo-pi-calculation/
-- https://www.sci.utah.edu/parallel-scientific-computing.html
-- https://www.cs.cmu.edu/~15210/pasl.html
-  -> https://www.cs.cmu.edu/~15210/pasl.html#_incrementing_an_array_in_parallel
-  -> https://www.cs.cmu.edu/~15210/pasl.html#ch:race-conditions
-- https://stackoverflow.com/questions/53381279/mandelbrot-image-generator-in-c-using-multi-threading-overwrites-half-the
-  -> https://forum.arduino.cc/index.php?topic=76376.0
-  -> https://en.wikipedia.org/wiki/Netpbm_format#PGM_example
-  -> https://rkenmi.com/posts/ppm-image-to-grayscale-c
-- https://stackoverflow.com/questions/9282269/create-save-ppm-file-from-unsigned-char-and-unsigned-short-pointers-rgb-c
-- https://codereview.stackexchange.com/questions/124358/mandelbrot-image-generator-and-viewer
-
-vuejs-chart examples:
-- https://vue-chartjs.org/guide/#introduction
-
-vuejs:
-- https://stackoverflow.com/questions/40177493/drawing-onto-a-canvas-with-vue-js
-- https://stackoverflow.com/questions/40113669/how-do-i-display-a-pgm-ppm-file-in-html
-  -> https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas
-- 
+==============================================================================================================
 
 examples:
 - fibonacci: https://www.thecrazyprogrammer.com/2014/12/c-cpp-program-for-fibonacci-series-using-recursion.html
-- 
+- mandebrot c++: https://codereview.stackexchange.com/questions/124358/mandelbrot-image-generator-and-viewer
+- mandelbrot c++ threads: https://stackoverflow.com/questions/53381279/mandelbrot-image-generator-in-c-using-multi-threading-overwrites-half-the

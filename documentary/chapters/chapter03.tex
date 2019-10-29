@@ -2,12 +2,13 @@
 
 \underline{Amdahl's law} \parencite{book6}:
 
-\begin{figure}[h!]\centering
-\includegraphics[scale=0.8]{amdahls-law.png}
-\caption{
-...
-}
-\label{fig:admLaw}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.8]{amdahls-law.png}
+	\caption{
+		The limited speed-up of a program, which can be parallelized, depending on the number of parallel executions \parencite{image1}.
+	}
+	\label{fig:admLaw}
 \end{figure}
 
 \begin{itemize}
@@ -18,12 +19,25 @@ computation” exist \parencite[see][p85]{inbook1}, though there are limits, as 
 
 \newpage
 
-\item “the fraction of the computational load... associated with data management housekeeping ... accounts for 40\% of the executed instructions”, "this overhead appears to be sequential so that it is unlikely to be amenable to parallel processing techniques” \parencite[see][p80]{inbook1}; amount of overhead (data management and adressing based on hardware restricitons), which can not be parallelized and reduces the factor of speed increase after parallelization. According to Amdahl, this factor can be reduced, but not with "parallel processing techniques", probably with more precisely and efficent hardware.
+\item “the fraction of the computational load... associated with data management housekeeping ... accounts for 40\% of the executed instructions”, "this overhead appears to be sequential so that it is unlikely to be amenable to parallel processing techniques” \parencite[see][p80]{inbook1}; amount of overhead (data management and addressing based on hardware restricitons), which can not be parallelized and reduces the factor of speed increase after parallelization. According to Amdahl, this factor can be reduced, but not with "parallel processing techniques", probably with more precisely and efficent hardware.
 \item a resisting "upper limit on speedup [exists] and therefore, apart from the sequential fraction (the so called non parallelizabled overhead), the remaining computations are perfectly parallelizable" \parencite[see][p81]{inbook1}
 \item the law in general: Let t\textsubscript{1} be the time taken by one processor solving a computational problem and t\textsubscript{p} be the time taken by p processors solving the same problem. Finally let us denote the supposed inherently sequential fraction of instructions by f. Then, according to Amdahl, t\textsubscript{p} = t\textsubscript{1} (f+(1-f)/p) and the speedup obtainable by p processors can be expressed as:
 
 	
 \[ \frac{t_1}{t_p} = \frac{1}{f + (1 - f) / p)} \]
+\end{itemize}
+
+\underline{Gustafson’s Law's} \parencite{inbook1}:
+\begin{itemize}
+	\item ...\parencite[see][p81]{inbook1}
+	\item ...\parencite[see][p87]{inbook1}\\
+\end{itemize}
+
+\underline{Concurrency in general}:
+\begin{itemize}
+	\item ...\parencite[see][p3]{internet1}
+	\item ...\parencite[see][p3]{internet2}
+	\item ...
 \end{itemize}
 
 \newpage
@@ -38,20 +52,29 @@ design for concurrency \parencite[see][p4]{article6}
 \begin{itemize}
   \item \underline{Flexibility}: Environments will be more heterogeneous.
   \item \underline{Efficiency}:	parallel for a speed-up purposes, more pitfalls (memory latency, thread overheads etc.)
-  \item \underline{Simplicity}:	Parallel codes will be more complicated. All the more reason to strive for maintainable, understandable programs.
+  \item \underline{Simplicity}:	Parallel codes will be more complicated. All the more reason to strive for maintainable, understandable programs.\\
 \end{itemize}
+...\parencite[see][p11 ff.]{article6}
 
 \newpage
 
 \section{Definition of parallel mathematical computations}
 
+\underline{Mathematical examples} \parencite{inbook1}:
+\begin{itemize}
+	\item ...\parencite[see][p8]{internet1}
+	\item ...\parencite[see][p4]{internet2}
+\end{itemize}
 
-...\newpage
+\newpage
 
 \section{Parallel Computer Architecture}
 
 ...\parencite[see][p9]{book1} \\
-...examples of parallelism \parencite[see][p11]{book1}
+...examples of parallelism \parencite[see][p11]{book1} \\
+...links 1) \\
+...\parencite[see][p9 ff.]{book5}
+
 
 \subsection{Flynn's Taxonomy of Parallel Architectures}
 
@@ -59,10 +82,12 @@ design for concurrency \parencite[see][p4]{article6}
 ...\parencite[see][p13]{book1}\\
 ...\parencite[see][p4]{book5}\\
 ...\parencite[see][p2]{book6}\\
+...\parencite[see][p15-p26]{internet2}
 
-\subsection{Thread Level Parallism}
+\subsection{Thread Level Parallelism}
 
-...\parencite[see][p24]{book1}
+...\parencite[see][p24]{book1}\\
+...\parencite[see][p14]{article6}
 
 \section{Parallel Programming Models}
 

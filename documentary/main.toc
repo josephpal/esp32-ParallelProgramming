@@ -20,7 +20,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}Flynn's Taxonomy of Parallel Architectures}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Thread Level Parallism}{7}
+\contentsline {subsection}{\numberline {3.3.2}Thread Level Parallelism}{7}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.4}Parallel Programming Models}{7}
 \defcounter {refsection}{0}\relax 
