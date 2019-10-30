@@ -18,26 +18,30 @@ Facing these types of problems such as "chip fabrication costs, fault tolerance,
 
 \section{Basic Concept}
 
-\underline{Amdahl's law} \parencite{book6}:
+Parallelism for programming is not something new. But due to the fact that real thread level parallelism [see Chapter \ref{subchap:threadLevelParallelism}] was only available after dual or multi-core processors were invented in 2005 \parencite{internet6}, the topic itself and efficient software implementations are still treated in scientific work like \parencite{book3} \parencite{article2}.
+
+In general, parallelism for programming means to split up a task or a computation into several sub tasks or results, to decrease the execution time. Depending on the problem itself, this separated tasks can be independent or connected. If we want to talk about the general concept of parallelism, we have to take a closer look to some mathematical laws, which try to describe the availability to parallel task execution and their limits.\\\\
+\
+The first one is called Amdahl's Law \parencite{inbook1}. During the period of publication of Amdahl's paper \parencite{book6}, critics claimed "that the organization of a single computer has reached its limits and that
+truly significant advances can be made only by interconnection of a multiplicity of computers” \parencite[see][p80]{inbook1}. Ofcourse this can be transfered on single and multi-core processors or even on multi threading, but in fact, like Amdahl claimed too, addressing hardware \parencite{inbook1}, and nowadays switching context time was not considered in this case.
+
+Amdahl's Law wants "to provide an upper limit on speedup" \parencite[see][p81]{inbook1} in general to point out, that there is a overhead \parencite{inbook1}, which can not pe implemented in parallel, but at the same time, "apart from the sequential fraction, the remaining computations are perfectly parallelizable" \parencite[see][p81]{inbook1}. 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.8]{amdahls-law.png}
+	\includegraphics[scale=0.95]{amdahls-law.png}
 	\caption{
 		The limited speed-up of a program, which can be parallelized, depending on the number of parallel executions \parencite{image1}.
 	}
 	\label{fig:admLaw}
 \end{figure}
 
-\begin{itemize}
-\item “the contention that the organization of a single computer has reached its limits and that
-truly significant advances can be made only by interconnection of a multiplicity of computers” \parencite[see][p80]{inbook1}; can be transferd on single and multi-core processors or even on multithreading, but in fact, like Amdahl claimed too, adressing hardware, and nowerdays switching context time was not considered here!
-Valiant noted in 1990, “no substantial impediments to general-purpose parallel
-computation” exist \parencite[see][p85]{inbook1}, though there are limits, as shown \parencite[seein Sec. 10][p85]{inbook1}.
-\item “the fraction of the computational load... associated with data management housekeeping ... accounts for 40\% of the executed instructions”, "this overhead appears to be sequential so that it is unlikely to be amenable to parallel processing techniques” \parencite[see][p80]{inbook1}; amount of overhead (data management and addressing based on hardware restricitons), which can not be parallelized and reduces the factor of speed increase after parallelization. According to Amdahl, this factor can be reduced, but not with "parallel processing techniques", probably with more precisely and efficent hardware.
-
 \newpage
 
+\begin{itemize}
+\item Valiant noted in 1990, “no substantial impediments to general-purpose parallel
+computation” exist \parencite[see][p85]{inbook1}, though there are limits, as shown \parencite[seein Sec. 10][p85]{inbook1}.
+\item “the fraction of the computational load... associated with data management housekeeping ... accounts for 40\% of the executed instructions”, "this overhead appears to be sequential so that it is unlikely to be amenable to parallel processing techniques” \parencite[see][p80]{inbook1}; amount of overhead (data management and addressing based on hardware restricitons), which can not be parallelized and reduces the factor of speed increase after parallelization. According to Amdahl, this factor can be reduced, but not with "parallel processing techniques", probably with more precisely and efficent hardware.
 \item a resisting "upper limit on speedup [exists] and therefore, apart from the sequential fraction (the so called non parallelizabled overhead), the remaining computations are perfectly parallelizable" \parencite[see][p81]{inbook1}
 \item the law in general: Let t\textsubscript{1} be the time taken by one processor solving a computational problem and t\textsubscript{p} be the time taken by p processors solving the same problem. Finally let us denote the supposed inherently sequential fraction of instructions by f. Then, according to Amdahl, t\textsubscript{p} = t\textsubscript{1} (f+(1-f)/p) and the speedup obtainable by p processors can be expressed as:
 
@@ -103,7 +107,7 @@ design for concurrency \parencite[see][p4]{article6}
 ...\parencite[see][p2]{book6}\\
 ...\parencite[see][p15-p26]{internet2}
 
-\subsection{Thread Level Parallelism}
+\subsection{Thread Level Parallelism}\label{subchap:threadLevelParallelism}
 
 ...\parencite[see][p24]{book1}\\
 ...\parencite[see][p14]{article6}
