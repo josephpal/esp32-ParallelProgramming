@@ -1,3 +1,21 @@
+Since the 1970s \parencite{article14}, the decade in which the microprocessor era started, the overall performance of a processor has increased \parencite{inproceedings4}. This goal was achieved by several points, including "sophisticated process technology, innovative architecture or micro-architecture" \parencite[see][Chapter 1, p2]{inproceedings4}. In fact, increasing the clock speed of a single core processor, like Moore's Law predicted \parencite{article14}, was usually reached by increasing the number of transistors on the chip \parencite{article14}. However, this go along side with the increase in complexity \parencite[see][Pollack’s rule]{article14}, which mean, that doubling the logic of a processor result in a performance boost of only 40\% \parencite[see][Chapter 2]{article14}.
+
+Another huge problem chip manufacturers have to deal with is leakage power \parencite[see][Chapter 2, p3]{inproceedings4}, because the "transistor leakage current increases as the chip size shrinks" \parencite[see][p2]{article14} [see Chart \ref{fig:leackagePer}]. An increase of leakage current of the transistors also result in a increase of the die's temperature \parencite{inproceedings4} along side the total power consumption as well.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.25]{leackage-power_vs_process-technology.png}
+	\caption{
+		Leakage Power (\% of total) vs. process technology \parencite{inproceedings4}
+	}
+	\label{fig:leackagePer}
+\end{figure}
+
+Furthermore, a increase of the processor clock frequency to speed up the performance is only available to a suffisticating limit of 4GHz \parencite{article14}. After this frequency threshold, also known as reaching the power wall, the "power dissipation" \parencite[see][p2]{article14} increases again.
+
+Facing these types of problems such as "chip fabrication costs, fault tolerance, power efficiency, heat dissipation" \parencite[see][p3]{article14} along side with increasing processor performance, the only possible solution chip manufacturers and companies could offer was parallelism. 
+
+\newpage
+
 \section{Basic Concept}
 
 \underline{Amdahl's law} \parencite{book6}:
@@ -16,10 +34,10 @@
 truly significant advances can be made only by interconnection of a multiplicity of computers” \parencite[see][p80]{inbook1}; can be transferd on single and multi-core processors or even on multithreading, but in fact, like Amdahl claimed too, adressing hardware, and nowerdays switching context time was not considered here!
 Valiant noted in 1990, “no substantial impediments to general-purpose parallel
 computation” exist \parencite[see][p85]{inbook1}, though there are limits, as shown \parencite[seein Sec. 10][p85]{inbook1}.
+\item “the fraction of the computational load... associated with data management housekeeping ... accounts for 40\% of the executed instructions”, "this overhead appears to be sequential so that it is unlikely to be amenable to parallel processing techniques” \parencite[see][p80]{inbook1}; amount of overhead (data management and addressing based on hardware restricitons), which can not be parallelized and reduces the factor of speed increase after parallelization. According to Amdahl, this factor can be reduced, but not with "parallel processing techniques", probably with more precisely and efficent hardware.
 
 \newpage
 
-\item “the fraction of the computational load... associated with data management housekeeping ... accounts for 40\% of the executed instructions”, "this overhead appears to be sequential so that it is unlikely to be amenable to parallel processing techniques” \parencite[see][p80]{inbook1}; amount of overhead (data management and addressing based on hardware restricitons), which can not be parallelized and reduces the factor of speed increase after parallelization. According to Amdahl, this factor can be reduced, but not with "parallel processing techniques", probably with more precisely and efficent hardware.
 \item a resisting "upper limit on speedup [exists] and therefore, apart from the sequential fraction (the so called non parallelizabled overhead), the remaining computations are perfectly parallelizable" \parencite[see][p81]{inbook1}
 \item the law in general: Let t\textsubscript{1} be the time taken by one processor solving a computational problem and t\textsubscript{p} be the time taken by p processors solving the same problem. Finally let us denote the supposed inherently sequential fraction of instructions by f. Then, according to Amdahl, t\textsubscript{p} = t\textsubscript{1} (f+(1-f)/p) and the speedup obtainable by p processors can be expressed as:
 
@@ -64,6 +82,7 @@ design for concurrency \parencite[see][p4]{article6}
 \begin{itemize}
 	\item ...\parencite[see][p8]{internet1}
 	\item ...\parencite[see][p4]{internet2}
+	\item ...\parencite[see][p398]{article7}
 \end{itemize}
 
 \newpage
