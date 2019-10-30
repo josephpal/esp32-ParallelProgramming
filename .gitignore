@@ -1,1 +1,9 @@
 research/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.run.xml
+*.gz
+*.toc
