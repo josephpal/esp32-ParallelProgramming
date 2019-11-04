@@ -1,6 +1,6 @@
-Since the 1970s \parencite{article14}, the decade in which the microprocessor era started, the overall performance of a processor has increased \parencite{inproceedings4}. This goal was achieved by several points, including "sophisticated process technology, innovative architecture or micro-architecture" \parencite[see][Chapter 1, p2]{inproceedings4}. In fact, increasing the clock speed of a single core processor, like Moore's Law predicted \parencite{article14}, was usually reached by increasing the number of transistors on the chip \parencite{article14}. However, this go along side with the increase in complexity \parencite[see][Pollack’s rule]{article14}, which mean, that doubling the logic of a processor result in a performance boost of only 40\% \parencite[see][Chapter 2]{article14}.
+Since the 1970s \parencite{article14}, the decade in which the microprocessor era started, the overall performance of a processor has increased \parencite{inproceedings4}. This goal was achieved by several points, including ``\textit{sophisticated process technology, innovative architecture or micro-architecture}'' \parencite[see][Chapter 1, p2]{inproceedings4}. In fact, increasing the clock speed of a single core processor, like Moore's Law predicted \parencite{article14}, was usually reached by increasing the number of transistors on the chip \parencite{article14}. However, this go along side with the increase in complexity \parencite[see][Pollack’s rule]{article14}, which mean, that doubling the logic of a processor result in a performance boost of only 40\% \parencite[see][Chapter 2]{article14}.
 
-Another huge problem chip manufacturers have to deal with is leakage power \parencite[see][Chapter 2, p3]{inproceedings4}, because the "transistor leakage current increases as the chip size shrinks" \parencite[see][p2]{article14} [see Chart \ref{fig:leackagePer}]. An increase of leakage current of the transistors also result in a increase of the die's temperature \parencite{inproceedings4} along side the total power consumption as well.
+Another huge problem chip manufacturers have to deal with is leakage power \parencite[see][Chapter 2, p3]{inproceedings4}, because the ``\textit{transistor leakage current increases as the chip size shrinks}'' \parencite[see][p2]{article14} [see Chart \ref{fig:leackagePer}]. An increase of leakage current of the transistors also result in a increase of the die's temperature \parencite{inproceedings4} along side the total power consumption as well.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.25]{leackage-power_vs_process-technology.png}
@@ -10,50 +10,88 @@ Another huge problem chip manufacturers have to deal with is leakage power \pare
 	\label{fig:leackagePer}
 \end{figure}
 
-Furthermore, a increase of the processor clock frequency to speed up the performance is only available to a suffisticating limit of 4GHz \parencite{article14}. After this frequency threshold, also known as reaching the power wall, the "power dissipation" \parencite[see][p2]{article14} increases again.
+Furthermore, a increase of the processor clock frequency to speed up the performance is only available to a suffisticating limit of 4GHz \parencite{article14}. After this frequency threshold, also known as reaching the power wall, the ``\textit{power dissipation}'' \parencite[see][p2]{article14} increases again.
 
-Facing these types of problems such as "chip fabrication costs, fault tolerance, power efficiency, heat dissipation" \parencite[see][p3]{article14} along side with increasing processor performance, the only possible solution chip manufacturers and companies could offer was parallelism. 
+Facing these types of problems such as ``\textit{chip fabrication costs, fault tolerance, power efficiency, heat dissipation}'' \parencite[see][p3]{article14} along side with increasing processor performance, the only possible solution chip manufacturers and companies could offer was parallelism. 
 
 \newpage
 
 \section{Basic Concept}
 
-Parallelism for programming is not something new. But due to the fact that real thread level parallelism [see Chapter \ref{subchap:threadLevelParallelism}] was only available after dual or multi-core processors were invented in 2005 \parencite{internet6}, the topic itself and efficient software implementations are still treated in scientific work like \parencite{book3} \parencite{article2}.
+Parallelism for processing is not something new. But due to the fact that real thread level parallelism [see Chapter \ref{subchap:threadLevelParallelism}] was only available after dual or multi-core processors were invented in 2005 \parencite{internet6}, the topic itself and efficient software implementations are still treated in scientific work \parencite{book3} \parencite{article2}.
 
-In general, parallelism for programming means to split up a task or a computation into several sub tasks or results, to decrease the execution time. Depending on the problem itself, this separated tasks can be independent or connected. If we want to talk about the general concept of parallelism, we have to take a closer look to some mathematical laws, which try to describe the availability to parallel task execution and their limits.\\\\
-\
-The first one is called Amdahl's Law \parencite{inbook1}. During the period of publication of Amdahl's paper \parencite{book6}, critics claimed "that the organization of a single computer has reached its limits and that
-truly significant advances can be made only by interconnection of a multiplicity of computers” \parencite[see][p80]{inbook1}. Ofcourse this can be transfered on single and multi-core processors or even on multi threading, but in fact, like Amdahl claimed too, addressing hardware \parencite{inbook1}, and nowadays switching context time was not considered in this case.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.3]{basic-parallelism.png}
+	\caption{
+		The basic concept of a simple concurrency computation.
+	}
+	\label{fig:basicPara}
+\end{figure}
 
-Amdahl's Law wants "to provide an upper limit on speedup" \parencite[see][p81]{inbook1} in general to point out, that there is a overhead \parencite{inbook1}, which can not pe implemented in parallel, but at the same time, "apart from the sequential fraction, the remaining computations are perfectly parallelizable" \parencite[see][p81]{inbook1}. 
+In general, parallelism for programming means to split up a task or a computation into several sub tasks [e.g. Figure \ref{fig:basicPara}] or results, to decrease the execution time. Depending on the problem itself, these separated tasks can be independent or connected [see Chapter \ref{chap:parallelPrinciples}]. If we want to talk about the general concept of parallelism, we have to take a closer look to some mathematical laws, which try to describe the availability to parallel task execution and their limits.
+
+\subsection{Amdahl's Law}
+
+The first one, which quantifies parallelism, is called Amdahl's Law \parencite{inbook1}. During the publication period of Amdahl's paper \parencite{book6}, critics claimed ``\textit{that the organization of a single computer has reached its limits and that
+truly significant advances can be made only by interconnection of a multiplicity of computers}” \parencite[see][p80]{inbook1}. Of course this can be transferred on single and multi-core processors or even on multi threading \parencite[see][Chapter 1.3, p2]{phdthesis1}, but in fact, like Amdahl claimed too, addressing hardware \parencite{inbook1}, and nowadays switching context time was not considered in this case.
+
+Amdahl's Law wants ``\textit{to provide an upper limit on speedup}'' \parencite[see][p81]{inbook1} in general to point out that there is a overhead \parencite{inbook1}, which can not pe implemented in parallel, but at the same time, ``\textit{apart from the sequential fraction, the remaining computations are perfectly parallelizable}'' \parencite[see][p81]{inbook1}.
+
+\newpage
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.95]{amdahls-law.png}
 	\caption{
-		The limited speed-up of a program, which can be parallelized, depending on the number of parallel executions \parencite{image1}.
+		The limited speed-up of a program, which can be parallelized, depending on the number of parallel executions \parencite{image1} \parencite[similar to][p4]{phdthesis1}.
 	}
 	\label{fig:admLaw}
 \end{figure}
 
+\noindent So regarding to Amdahl's Law, there has to be an upper limit of parallelism, due to the fact, that some sequential fractions still exists. In order to be able to describe this relationship, the time required to perform a calculation at once is related to the total time in parallel execution:
+
+``\textit{Let t\textsubscript{1} be the time taken by one processor solving a computational problem and t\textsubscript{p} be the time taken by p processors solving the same problem. Finally let us denote the supposed inherently sequential fraction of instructions by f. Then, according to Amdahl, t\textsubscript{p} = t\textsubscript{1}(f+(1-f)/p) and the speedup obtainable by p processors can be expressed as}'' \parencite[see][p81]{inbook1}:
+
+\begin{equation} \label{formula:amd}
+	s = \frac{t_1}{t_p} = \frac{1}{f + (1 - f) / p}
+\end{equation}
+\\[2pt]
+For example, a program which contains 90\% of parallelizable code [see Figure \ref{fig:admLaw}] reaches his speed up limit at around 512 cores [formula  \ref{formula:amdLimes}]; in this case we substitute f= 0.2/2. After that number of processor cores, an significant speed up increase is not noticeable anymore . 
+
+\begin{equation} \label{formula:amdLimes}
+	\lim_{p \to \infty f \to 0.1} \left( \frac{t_1}{t_p} \right) = \lim_{p \to \infty} \left( \frac{1}{0.1 + (1 - 0.1) / p} \right) = 10
+\end{equation}
+\\[2pt]
+Many other authors tried to claim that this upper limit of speed up, both in theory and practice, is not the final end. To proof that, only to mention a few , they took into account the ``\textit{energy per instruction (EPI)}" \parencite[Annavaram et al. in][Chapter 3,  p81]{inbook1}, a case study depending on ``\textit{asymmetric (or heterogeneous) chip multiprocessor architectures}'' \parencite[Kumar et al. in][Chapter 3,  p81]{inbook1} or even considering ``\textit{disk arrays to reduce input-output requirements}'' \parencite[Patterson et al. in][Chapter 3,  p81]{inbook1}.
+
 \newpage
 
-\begin{itemize}
-\item Valiant noted in 1990, “no substantial impediments to general-purpose parallel
-computation” exist \parencite[see][p85]{inbook1}, though there are limits, as shown \parencite[seein Sec. 10][p85]{inbook1}.
-\item “the fraction of the computational load... associated with data management housekeeping ... accounts for 40\% of the executed instructions”, "this overhead appears to be sequential so that it is unlikely to be amenable to parallel processing techniques” \parencite[see][p80]{inbook1}; amount of overhead (data management and addressing based on hardware restricitons), which can not be parallelized and reduces the factor of speed increase after parallelization. According to Amdahl, this factor can be reduced, but not with "parallel processing techniques", probably with more precisely and efficent hardware.
-\item a resisting "upper limit on speedup [exists] and therefore, apart from the sequential fraction (the so called non parallelizabled overhead), the remaining computations are perfectly parallelizable" \parencite[see][p81]{inbook1}
-\item the law in general: Let t\textsubscript{1} be the time taken by one processor solving a computational problem and t\textsubscript{p} be the time taken by p processors solving the same problem. Finally let us denote the supposed inherently sequential fraction of instructions by f. Then, according to Amdahl, t\textsubscript{p} = t\textsubscript{1} (f+(1-f)/p) and the speedup obtainable by p processors can be expressed as:
+\subsection{Gustafson’s Law's}
 
-	
-\[ \frac{t_1}{t_p} = \frac{1}{f + (1 - f) / p)} \]
-\end{itemize}
+Due to the fact that Gustafson’s Law's is based on ``the same concepts as the
+bases of Amdahl’s law, it is more a variant, rather than a refutation'' \parencite[see][p81]{inbook1}. But in fact, it is another mathematical consideration, which offers, in comparison to Amdahl's Law, no upper speed up limit regarding parallelism. Related to Gustafson, the time a single core processor needs solving the same computational problem on the sequential would be \textit{ft\textsubscript{p}}, and on the parallelizable part \textit{(1-f)pt\textsubscript{p}}. Therefore, the total amount of achievable speed up by p processors can thus be calculated
 
-\underline{Gustafson’s Law's} \parencite{inbook1}:
-\begin{itemize}
-	\item ...\parencite[see][p81]{inbook1}
-	\item ...\parencite[see][p87]{inbook1}\\
-\end{itemize}
+\begin{equation} \label{formula:gustLaw}
+	s = \frac{t_1}{t_p} = \frac{ft_p + (1 - f)pt_p}{t_p} = f + (1 - f)p
+\end{equation}
+\\[2pt]
+using the formula \ref{formula:gustLaw} above. In this case, ``f is the same “inherently sequential” fraction of instructions as in the case of Amdahl’s law'' \parencite[see][p81]{inbook1}. In addition to that, he doesn't take the ``sequential input-output requirements proportional to input and output sizes into account'' \parencite[see][p81]{inbook1}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.28]{gustafssons-law.png}
+	\caption{
+		Gustafson’s Law. In contrast to Amdahl we now have no upper limit to the speed up. \textit{f} only determines the slope of the speed-up \parencite{article19}.
+	}
+	\label{fig:gustLaw}
+\end{figure}
+
+Regarding to \parencite{inbook1}, neither Amdahl's or Gustafson’s Law are not suitable to quantify parallelism in theory and practice, because both don't take into account, that ``sequential fractions of computations have negligible effect on speedup if the growth rate of the parallelizable fraction is higher than that of the sequential fraction.'' \parencite[see][Chapter 7, p88]{inbook1}.
+
+Furthermore, \parencite{inbook1} point out, that no simple formula governing parallelism exists. Both laws are more of an attempt to describe experimental results, and therefore understood rather as a draft rule of thumb as a law.
+
+\newpage
 
 \underline{Concurrency in general}:
 \begin{itemize}
@@ -64,7 +102,7 @@ computation” exist \parencite[see][p85]{inbook1}, though there are limits, as 
 
 \newpage
 
-\subsection{Principles of Parallel Computing}
+\subsection{Principles of Parallel Computing}\label{chap:parallelPrinciples}
 
 \textbf{Emphasises design}:
 Amdahl's law highlights the pitfalls of looking for
