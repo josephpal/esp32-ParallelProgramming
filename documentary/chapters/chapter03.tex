@@ -97,10 +97,6 @@ Furthermore, \parencite{inbook1} point out, that no simple formula governing par
 
 Despite trying to quantify the ability to parallelism task processing, it is also important to keep in mind the basic aim of parallelism to mention a ``\textit{design for concurrency}'' \parencite[see][p4]{article6}. First of all, reducing the execution time is one of the most important objective in concurrency to make applications more \textbf{efficient}. Computations, and even tasks, are getting more and more complicated \parencite{internet2}, not only in the application field of scientific researches. Today's software applications require sophisticated hardware like multi-core processors, to offer a suitable user experience, for example in gaming (e.g VR), augmented reality in automation (e.g. AR) or for IoT [see Chapter \ref{chap:introduction}] devices.
 
-In case of software parallelism, which is the main objective of this chapter, we have to distinguish between tasks, which are independent and tasks, which are connected (called dependent). It depends largely on the application itself: e.g. for example, a numerical calculation [see Chapter \ref{chap:mathComp}] can be easily subdivided into sub tasks to speed up the computation, whereas a graphical application needs a logical loop and a render loop, both independently in different tasks [see Fig. \ref{fig:compIndeDepConcurr}]; a data exchange usually takes place via a shared memory [more on this in Chapter \ref{chap:parallelCompArch}]. As already suggested in Chapter \ref{fig:basicPara}, our work will be limited to the division of numerical or generic mathematical calculations. 
-
-In addition to that, multi-core software applications offers also the opportunity, to provide low power systems, because \textbf{power consumption} results from performance and clock frequency \parencite[see][Fig. 3, p4]{article14}, along side instructions per core (IPC) \parencite{inproceedings4} [further inf. in Chapter \ref{chap:parallelprg}].
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.32]{comparison-comp-indep-par-depnd-par.png}
@@ -110,39 +106,64 @@ In addition to that, multi-core software applications offers also the opportunit
 	\label{fig:compIndeDepConcurr}
 \end{figure}
 
-Furthermore, to grantee \textbf{flexibility} for both, the software application and hardware platform, multi-core systems and concurrency is the way to go to fit customers and companies claims. This can easily be proofed due to the fact that today's hard- and software manufacturers always try to provide generalized solutions.   
+In case of software parallelism, which is the main objective of this chapter, we have to distinguish between tasks, which are independent and tasks, which are connected (called dependent). It depends largely on the application itself: e.g. for example, a numerical calculation [see Chapter \ref{chap:mathComp}] can be easily subdivided into sub tasks to speed up the computation, whereas a graphical application needs a logical loop and a render loop, both independently in different tasks [see Fig. \ref{fig:compIndeDepConcurr}]; a data exchange usually takes place via a shared memory [more on this in Chapter \ref{chap:parallelCompArch}]. As already suggested in Chapter \ref{fig:basicPara}, our work will be limited to the division of numerical or generic mathematical calculations. 
+
+In addition to that, multi-core software applications offers also the opportunity, to provide low power systems, because \textbf{power consumption} results from performance and clock frequency \parencite[see][Fig. 3, p4]{article14}, along side instructions per core (IPC) \parencite{inproceedings4} [further inf. in Chapter \ref{chap:parallelprg}].
+
 \newpage
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.25]{array-split-parallelism.png}
+	\caption{
+		Adding to arrays of integers for speed up in concurrency \parencite[see][p3]{internet2}.
+	}
+	\label{fig:arraySplit}
+\end{figure}
+
+\noindent Furthermore, to guarantee \textbf{flexibility} for both, the software application and hardware platform, multi-core systems and concurrency is the way to go to fit customers and companies claims. This can easily be proofed due to the fact that today's hard- and software manufacturers always try to provide generalized solutions.   
+
+It can not be denied that as the degree of parallelism increases, the complexity of the application including the hardware realization also increases \parencite{article14} \parencite{article6}. A basic principle and design pattern of parallel computing is therefore to ensure maximum efficiency through parallelism while reducing complexity. A usual rule can be transferred on this topic: ensure \textbf{simplicity}.
+
+Regarding to Figure \ref{fig:compIndeDepConcurr} and Chapter \ref{chap:mathComp}, the best way to implement and computation concurrent is to guarantee that the sub tasks can work independent from each other. This has a major effect on the performance and complexity of the software implementation: ``massively parallel vs. embarrassingly serial'' \parencite[see][p15]{article6}, alongside the ability to take less attention on control issues such as task orders, synchronization, (shared) memory access or even task communication \parencite{internet1}. In fact, complete concurrency is not possible, due to the fact that splitting a computation into sub tasks requires at least on remaining worker task to collect and combine the sub task results. Anyway, \textbf{Independence} of sub tasks enables almost the best efficiency.\\
 
 \noindent \textbf{Emphasises design}  \parencite[see][p5]{article6}: In summary, therefore, the following points should be seen as goals and thus as groundbreaking for the basic principles of parallelism:
 
 \begin{enumerate}
-	\item \underline{Efficiency}: Concurrency in hard- and software to solve large problems in less amount of time to reduce execution time and power consumption.
+	\item \underline{Efficiency}: 
 	
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[scale=0.25]{array-split-parallelism.png}
-		\caption{
-			Adding to arrays of integers for speed up in concurrency \parencite[see][p3]{internet2}.
-		}
-		\label{fig:arraySplit}
-	\end{figure}
+	Concurrency in hard- and software to solve large problems in less amount of time to reduce execution time and power consumption.
 		
-	\item \underline{Flexibility}: Environments will be more heterogeneous and the use in different application areas will be enabled.
+	\item \underline{Flexibility}: 
+	
+	Environments will be more heterogeneous and the use in different application areas will be enabled.
 	
 	\item \underline{Simplicity}:
 	
 	\item \underline{Independence}:
 \end{enumerate}
 
-\noindent These principles result in four different design patterns \parencite[see][p11 ff.]{article6} for parallel software applications:
-\begin{itemize}
-  \item 
-  \item 
-  \item 
-  \item 
-\end{itemize}
-
 \newpage
+
+\noindent These principles result in four different \textbf{design patterns} \parencite[see][p11 ff.]{article6} for parallel software applications:
+\begin{itemize}
+  \item \underline{Finding concurrency}: 
+  
+  This should be the main aim of all software applications today, set the case it makes sense.
+  
+  \item \underline{Algorithm structure}: 
+  
+  To ensure proper efficient, the implementation should be based on usual parallel programming models [see Chapter \ref{chap:parPrgModels}].
+  
+  \item \underline{Supporting structures}: 
+  
+  ``\textit{Useful idioms rather than unique implementations}'' \parencite[see][p25]{article6} like Loop Parallelism, Fork/Join, Shared Data or Shared Queue \parencite{article6}.
+  
+  \item \underline{Implementation Mechanism}: 
+  
+  Using programming languages which offer the opportunity to real parallel computing (e.g. C++, OpenMP \& Pthreads, MPI, OpenCL) \parencite{article6}.
+  
+\end{itemize}
 
 \section{Definition of parallel mathematical computations}\label{chap:mathComp}
 
@@ -226,7 +247,7 @@ Instruction stream defines the sequence of instructions performed by CPU, as in 
 ...\parencite[see][p24]{book1}\\
 ...\parencite[see][p14]{article6}
 
-\section{Parallel Programming Models}
+\section{Parallel Programming Models}\label{chap:parPrgModels}
 
 \textbf{Steps to evaluate a proper parallel design} \parencite[see][p6]{article6}:
 \begin{enumerate}
