@@ -150,8 +150,7 @@ Regarding to Figure \ref{fig:compIndeDepConcurr} and Chapter \ref{chap:mathComp}
   \item \underline{Finding concurrency}: 
   
   This should be the main aim of all software applications today, set the case it makes sense.
-  
-  \item \underline{Algorithm structure}: 
+    \item \underline{Algorithm structure}: 
   
   To ensure proper efficient, the implementation should be based on usual parallel programming models [see Chapter \ref{chap:parPrgModels}].
   
@@ -178,11 +177,11 @@ Regarding to Figure \ref{fig:compIndeDepConcurr} and Chapter \ref{chap:mathComp}
 
 \section{Parallel Computer Architecture}\label{chap:parallelCompArch}
 
-The terminology of computer architecture was invented in 1960s by the designers of IBM System to describe the structure of a computer. Computer architect’s task is to write an suitable program code for the machine, keeping in mind every time this structure of computer, understanding all the factors like state-of-the-art technologies at each design level and changing those designs tradeoffs for their specific applications.
+The terminology of computer architecture was invented in 1960s by the designers of IBM System to describe the structure of a computer. Computer architect’s task is to write an suitable program code for the machine, keeping in mind every time this structure of computer, understanding all the factors like state-of-the-art technologies at each design level and changing those designs tradeoffs for their specific applications \parencite{article20}.
 
 Parallel computing means the situation where tasks are separated into discrete parts that can be executed concurrently. Each part is diffused into a larger series of instructions which will be executed simultaneously on different CPU's or even in a pipeline [see Figure \ref{fig:parallelismPipe}]. These kind of parallel systems have to deal with the simultaneous use of multiple computer resources that can include either a single computer with multiple CPU's, or a number of computers connected by a network creating a parallel processing cluster or combination of both.
 
-The crux of parallel processing are CPU's. Based on the number of instruction and data streams that can be processed simultaneously, computing systems are classified into four major categories based on Flynn’s Taxonomy.
+The crux of parallel processing are CPU's. Based on the number of instruction and data streams that can be processed simultaneously, computing systems are classified into four major categories based on Flynn’s Taxonomy \parencite{internet7}.
 
 \begin{figure}[h!]
 	\centering
@@ -206,7 +205,7 @@ Instruction stream defines the sequence of instructions performed by CPU, as in 
 
 \newpage
 
-\noindent The major four categories are the followings [comp. to Fig. \ref{fig:flynnsTax}]:
+\noindent The major four categories are the followings [comp. to Fig. \ref{fig:flynnsTax}] \parencite{book1}:
 \begin{enumerate}
 	\item \underline{\textbf{SISD} (single-instruction, single-data) systems}:
 	
@@ -234,18 +233,29 @@ Instruction stream defines the sequence of instructions performed by CPU, as in 
 	\label{fig:flynnsTax}
 \end{figure}
 
-%...\parencite[see][p5]{internet1}\\
-%...\parencite[see][p13]{book1}\\
-%...\parencite[see][p4]{book5}\\
-%...\parencite[see][p2]{book6}\\
-%...\parencite[see][p15-p26]{internet2}
 
 \newpage
 
-\subsection{Thread Level Parallelism}\label{subchap:threadLevelParallelism}
+\subsection{Types of Parallelism}\label{subchap:typesOfParallelism}
+Parallel computing is used for multiple processing elements simultaneously to solve any type of problem, as it's already explained in [\ref{chap:parallelCompArch}].
 
-...\parencite[see][p24]{book1}\\
-...\parencite[see][p14]{article6}
+The Parallel Computing is evolved from serial computing that attempts to emulate what has always been the state of affairs in natural World.
+Advantages of Parallel Computing over Serial Computing:
+\begin{enumerate}
+			\item {It saves time and money as many resources working together will reduce the time and cut potential costs.}
+			\item {It can be impractical to solve larger problems on Serial Computing.}
+			\item {It can take advantage of non-local resources when the local resources are finite.}
+			\item {Serial Computing ‘wastes’ the potential computing power, thus Parallel Computing makes better work of hardware.}
+\end{enumerate}
+Types of Parallelism:
+\begin{enumerate}
+	 \item {\textbf{Bit-level parallelism}: This form of parallelism computing have it's roots based in the concept of increasing the processor's size. The amount of instructons it's reduced that the system must execute in order to perform a task on large-sized data.}
+	 \item {\textbf{Instruction-level parallelism}: This form of parallelism computing is designed for a processor to only address less than one instruction for each clock cycle phase. The instructions can be re-ordered and grouped which are later on executed concurrently without affecting the result of the program.}
+	  \item {\textbf{Task/Thread parallelism}: This form of parallelism computing is designed to employ the subtasks fragments of a decompositioned task and then allocate the fragments subtasks for execution concurrently.} \parencite{book7}
+\end{enumerate}   
+
+\textbf{Thread-level parallelism} is the only way to execute independent programs or discrete parts of a single program,simultaneously, using different sources of execution, called threads.
+
 
 \section{Parallel Programming Models}\label{chap:parPrgModels}
 
