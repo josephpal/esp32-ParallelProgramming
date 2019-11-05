@@ -69,14 +69,14 @@ Many other authors tried to claim that this upper limit of speed up, both in the
 
 \subsection{Gustafson’s Law's}
 
-Due to the fact that Gustafson’s Law's is based on ``the same concepts as the
-bases of Amdahl’s law, it is more a variant, rather than a refutation'' \parencite[see][p81]{inbook1}. But in fact, it is another mathematical consideration, which offers, in comparison to Amdahl's Law, no upper speed up limit regarding parallelism. Related to Gustafson, the time a single core processor needs solving the same computational problem on the sequential would be \textit{ft\textsubscript{p}}, and on the parallelizable part \textit{(1-f)pt\textsubscript{p}}. Therefore, the total amount of achievable speed up by p processors can thus be calculated
+Due to the fact that Gustafson’s Law's is based on ``\textit{the same concepts as the
+bases of Amdahl’s law, it is more a variant, rather than a refutation}'' \parencite[see][p81]{inbook1}. But in fact, it is another mathematical consideration, which offers, in comparison to Amdahl's Law, no upper speed up limit regarding parallelism. Related to Gustafson, the time a single core processor needs solving the same computational problem on the sequential would be \textit{ft\textsubscript{p}}, and on the parallelizable part \textit{(1-f)pt\textsubscript{p}}. Therefore, the total amount of achievable speed up by p processors can thus be calculated
 
 \begin{equation} \label{formula:gustLaw}
 	s = \frac{t_1}{t_p} = \frac{ft_p + (1 - f)pt_p}{t_p} = f + (1 - f)p
 \end{equation}
 \\[2pt]
-using the formula \ref{formula:gustLaw} above. In this case, ``f is the same “inherently sequential” fraction of instructions as in the case of Amdahl’s law'' \parencite[see][p81]{inbook1}. In addition to that, he doesn't take the ``sequential input-output requirements proportional to input and output sizes into account'' \parencite[see][p81]{inbook1}.
+using the formula \ref{formula:gustLaw} above. In this case, ``\textit{f is the same “inherently sequential” fraction of instructions as in the case of Amdahl’s law}'' \parencite[see][p81]{inbook1}. In addition to that, he doesn't take the ``\textit{sequential input-output requirements proportional to input and output sizes into account}'' \parencite[see][p81]{inbook1}.
 
 \begin{figure}[h!]
 	\centering
@@ -87,39 +87,64 @@ using the formula \ref{formula:gustLaw} above. In this case, ``f is the same “
 	\label{fig:gustLaw}
 \end{figure}
 
-Regarding to \parencite{inbook1}, neither Amdahl's or Gustafson’s Law are suitable to quantify parallelism in theory and practice, because both don't take into account, that ``sequential fractions of computations have negligible effect on speedup if the growth rate of the parallelizable fraction is higher than that of the sequential fraction.'' \parencite[see][Chapter 7, p88]{inbook1}.
+Regarding to \parencite{inbook1}, neither Amdahl's or Gustafson’s Law are suitable to quantify parallelism in theory and practice, because both don't take into account, that ``\textit{sequential fractions of computations have negligible effect on speedup if the growth rate of the parallelizable fraction is higher than that of the sequential fraction}'' \parencite[see][Chapter 7, p88]{inbook1}.
 
 Furthermore, \parencite{inbook1} point out, that no simple formula governing parallelism exists. Both laws are more of an attempt to describe experimental results, and therefore understood rather as a draft rule of thumb as a law.
 
 \newpage
 
-\subsection{Concurrency in general} \label{chap:concurrGeneral}
-
-\begin{itemize}
-	\item ...\parencite[see][p3]{internet1}
-	\item ...\parencite[see][p3]{internet2}
-	\item ...
-\end{itemize}
-
-\newpage
-
 \subsection{Principles of Parallel Computing}\label{chap:parallelPrinciples}
 
-\textbf{Emphasises design}:
-Amdahl's law highlights the pitfalls of looking for
-sticking-plaster speed-ups in serial programs –
-design for concurrency \parencite[see][p4]{article6}
-\\\\\textbf{Aim of concurrency and their effects} on program structure or implementation \parencite[see][p5]{article6}:
+Despite trying to quantify the ability to parallelism task processing, it is also important to keep in mind the basic aim of parallelism to mention a ``\textit{design for concurrency}'' \parencite[see][p4]{article6}. First of all, reducing the execution time is one of the most important objective in concurrency to make applications more \textbf{efficient}. Computations, and even tasks, are getting more and more complicated \parencite{internet2}, not only in the application field of scientific researches. Today's software applications require sophisticated hardware like multi-core processors, to offer a suitable user experience, for example in gaming (e.g VR), augmented reality in automation (e.g. AR) or for IoT [see Chapter \ref{chap:introduction}] devices.
+
+In case of software parallelism, which is the main objective of this chapter, we have to distinguish between tasks, which are independent and tasks, which are connected (called dependent). It depends largely on the application itself: e.g. for example, a numerical calculation [see Chapter \ref{chap:mathComp}] can be easily subdivided into sub tasks to speed up the computation, whereas a graphical application needs a logical loop and a render loop, both independently in different tasks [see Fig. \ref{fig:compIndeDepConcurr}]; a data exchange usually takes place via a shared memory [more on this in Chapter \ref{chap:parallelCompArch}]. As already suggested in Chapter \ref{fig:basicPara}, our work will be limited to the division of numerical or generic mathematical calculations. 
+
+In addition to that, multi-core software applications offers also the opportunity, to provide low power systems, because \textbf{power consumption} results from performance and clock frequency \parencite[see][Fig. 3, p4]{article14}, along side instructions per core (IPC) \parencite{inproceedings4} [further inf. in Chapter \ref{chap:parallelprg}].
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.32]{comparison-comp-indep-par-depnd-par.png}
+	\caption{
+		Comparison of independent and dependent tasks in a general concurrency application.
+	}
+	\label{fig:compIndeDepConcurr}
+\end{figure}
+
+Furthermore, to grantee \textbf{flexibility} for both, the software application and hardware platform, multi-core systems and concurrency is the way to go to fit customers and companies claims. This can easily be proofed due to the fact that today's hard- and software manufacturers always try to provide generalized solutions.   
+\newpage
+
+\noindent \textbf{Emphasises design}  \parencite[see][p5]{article6}: In summary, therefore, the following points should be seen as goals and thus as groundbreaking for the basic principles of parallelism:
+
+\begin{enumerate}
+	\item \underline{Efficiency}: Concurrency in hard- and software to solve large problems in less amount of time to reduce execution time and power consumption.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.25]{array-split-parallelism.png}
+		\caption{
+			Adding to arrays of integers for speed up in concurrency \parencite[see][p3]{internet2}.
+		}
+		\label{fig:arraySplit}
+	\end{figure}
+		
+	\item \underline{Flexibility}: Environments will be more heterogeneous and the use in different application areas will be enabled.
+	
+	\item \underline{Simplicity}:
+	
+	\item \underline{Independence}:
+\end{enumerate}
+
+\noindent These principles result in four different design patterns \parencite[see][p11 ff.]{article6} for parallel software applications:
 \begin{itemize}
-  \item \underline{Flexibility}: Environments will be more heterogeneous.
-  \item \underline{Efficiency}:	parallel for a speed-up purposes, more pitfalls (memory latency, thread overheads etc.)
-  \item \underline{Simplicity}:	Parallel codes will be more complicated. All the more reason to strive for maintainable, understandable programs.\\
+  \item 
+  \item 
+  \item 
+  \item 
 \end{itemize}
-...\parencite[see][p11 ff.]{article6}
 
 \newpage
 
-\section{Definition of parallel mathematical computations}
+\section{Definition of parallel mathematical computations}\label{chap:mathComp}
 
 \underline{Mathematical examples} \parencite{inbook1}:
 \begin{itemize}
@@ -130,34 +155,71 @@ design for concurrency \parencite[see][p4]{article6}
 
 \newpage
 
-\section{Parallel Computer Architecture}
-The terminology of computer architecture was invented in 1960s by the designers of IBM System to describe the structure of a computer. Computer architect’s task is to write an suitable program code for the machine,keeping in mind everytime this structure of computer, understanding all the factors like state-of-the-art technologies at each design level and changing those designs tradeoffs for their specific applications.\
-Parallel computing means the situation where tasks are separated into discrete parts that can be executed concurrently. Each part is diffused into a larger series of instructions which will be executed simultaneously on different CPUs. These kind of parallel systems have to deal with the simultaneous use of multiple computer resources that can can include either a single computer with multiple CPUs, ori a number of computers connected by a network creating a parallel processing cluster or combination of both.\
-The crux of parallel processing are CPUs. Based on the number of instruction and data streams that can be processed simultaneously, computing systems are classified into four major categories based on Flynn’s Taxonomy.
-\\
-...\parencite[see][p9]{book1} \\
-...examples of parallelism \parencite[see][p11]{book1} \\
-...links 1) \\
-...\parencite[see][p9 ff.]{book5}
+\section{Parallel Computer Architecture}\label{chap:parallelCompArch}
 
+The terminology of computer architecture was invented in 1960s by the designers of IBM System to describe the structure of a computer. Computer architect’s task is to write an suitable program code for the machine, keeping in mind every time this structure of computer, understanding all the factors like state-of-the-art technologies at each design level and changing those designs tradeoffs for their specific applications.
+
+Parallel computing means the situation where tasks are separated into discrete parts that can be executed concurrently. Each part is diffused into a larger series of instructions which will be executed simultaneously on different CPU's or even in a pipeline [see Figure \ref{fig:parallelismPipe}]. These kind of parallel systems have to deal with the simultaneous use of multiple computer resources that can include either a single computer with multiple CPU's, or a number of computers connected by a network creating a parallel processing cluster or combination of both.
+
+The crux of parallel processing are CPU's. Based on the number of instruction and data streams that can be processed simultaneously, computing systems are classified into four major categories based on Flynn’s Taxonomy.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.28]{parallelism-pipelining.png}
+	\caption{
+		Overlapping execution of four independent instructions by pipelining. The execution of each instruction is split into four stages: \textit{fetch (F)}, \textit{decode (D)}, \textit{execute (E)}, and \textit{write back (W)} \parencite[see][Fig. 2.1, p11]{book1}.
+	}
+	\label{fig:parallelismPipe}
+\end{figure}
+
+%...\parencite[see][p9]{book1} \\
+%...examples of parallelism \parencite[see][p11]{book1} \\
+%...links 1) \\
+%...\parencite[see][p9 ff.]{book5}
 
 \subsection{Flynn's Taxonomy of Parallel Architectures}
-Flynn’s classification was first elaborated and proposed by Michael Flynn in 1966 and represents a scheme which is based on the notion of information stream. The term ‘stream’ defines a sequence or flow of either one of both existent types of information which flows and are operated into a processor: instructions or data. Instruction stream defines the sequence of instructions performed by CPU, as in the same time the data stream defines the data traffic exchanged between the memory and CPU.His taxonomy left aside the machine’s structure for classification of parallel computers and took over a whole new concept focusing on multiplicity of instructions and data streams observed by the CPU during the execution.\
-(IDK HOW TO MAKE A LIST)The major four categories are the followings:
-SISD (single-instruction,single-data) systems
-It designs an sequential computer which exploits no parallelism in either the instruction stream nor data stream.  An SISD computing system  is a uniprocessor machine capable of single stream executions.
-SIMD(single-instruction, multiple-data) systems
-It designs a multiprocessor machine capable of executing a single instruction stream on multiple different data streams. Instructions can be executed sequentially, such as by pipelining,  or in parallel by multiple functional units.
-MISD (multiple instruction streams, single data stream) systems
-It designs a multiprocessor machine capable of executing different instructions streams on the same data stream.  
-MIMD (multiple instruction streams, multiple data streams) 
-It designs a multiprocessor machine capable of executing multiple instructions streams on multiple data streams. This architectures include multi-core superscalar processors and distributed systems. 
-\\
-...\parencite[see][p5]{internet1}\\
-...\parencite[see][p13]{book1}\\
-...\parencite[see][p4]{book5}\\
-...\parencite[see][p2]{book6}\\
-...\parencite[see][p15-p26]{internet2}
+
+Flynn’s classification was first elaborated and proposed by Michael Flynn in 1966 and represents a scheme which is based on the notion of information stream. The term ‘stream’ defines a sequence or flow of either one of both existent types of information which flows and are operated into a processor: instructions or data. 
+
+Instruction stream defines the sequence of instructions performed by CPU, as in the same time the data stream defines the data traffic exchanged between the memory and CPU.His taxonomy left aside the machine’s structure for classification of parallel computers and took over a whole new concept focusing on multiplicity of instructions and data streams observed by the CPU during execution.
+
+\newpage
+
+\noindent The major four categories are the followings [comp. to Fig. \ref{fig:flynnsTax}]:
+\begin{enumerate}
+	\item \underline{\textbf{SISD} (single-instruction, single-data) systems}:
+	
+		  It designs an sequential computer which exploits no parallelism in either the instruction stream nor data stream.  An SISD computing system  is a uniprocessor machine capable of single stream executions.
+		  
+	\item \underline{\textbf{SIMD} (single-instruction, multiple-data) systems}:
+	
+		  It designs a multiprocessor machine capable of executing a single instruction stream on multiple different data streams. Instructions can be executed sequentially, such as by pipe-lining,  or in parallel by multiple functional units.
+		  
+	\item \underline{\textbf{MISD} (multiple instruction streams, single data stream) systems}:
+	
+		  It designs a multiprocessor machine capable of executing different instructions streams on the same data stream.
+	
+	\item \underline{\textbf{MIMD} (multiple instruction streams, multiple data streams)  systems}:
+	
+		  It designs a multiprocessor machine capable of executing multiple instructions streams on multiple data streams. This architectures include multi-core superscalar processors and distributed systems. 	  
+\end{enumerate}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.28]{flynns-taxonomy.png}
+	\caption{
+		Visualization of Flynn's Taxonomy \parencite[see][p5]{internet1}.
+	}
+	\label{fig:flynnsTax}
+\end{figure}
+
+%...\parencite[see][p5]{internet1}\\
+%...\parencite[see][p13]{book1}\\
+%...\parencite[see][p4]{book5}\\
+%...\parencite[see][p2]{book6}\\
+%...\parencite[see][p15-p26]{internet2}
+
+\newpage
 
 \subsection{Thread Level Parallelism}\label{subchap:threadLevelParallelism}
 
