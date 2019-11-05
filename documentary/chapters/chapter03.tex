@@ -140,7 +140,12 @@ Regarding to Figure \ref{fig:compIndeDepConcurr} and Chapter \ref{chap:mathComp}
 	
 	\item \underline{Simplicity}:
 	
+	Code for Parallel Computing will be more complicated, because synchronization or memory access have to be regulated. One reason more ``\textit{to strive for maintainable,
+	understandable programs}'' \parencite[see][p6]{article6}. 
+	
 	\item \underline{Independence}:
+	
+	To ensure maximum efficiency, parallel computations should be independent.
 \end{enumerate}
 
 \newpage
@@ -166,12 +171,52 @@ Regarding to Figure \ref{fig:compIndeDepConcurr} and Chapter \ref{chap:mathComp}
 
 \section{Definition of parallel mathematical computations}\label{chap:mathComp}
 
-\underline{Mathematical examples} \parencite{inbook1}:
-\begin{itemize}
-	\item ...\parencite[see][p8]{internet1}
-	\item ...\parencite[see][p4]{internet2}
-	\item ...\parencite[see][p398]{article7}
-\end{itemize}
+We talked about how to quantifying parallelism, above that also about the principles of parallel computing and the resulting design patterns for parallel computing. Now its time to take into account the necessary mathematical computations. Not all calculations are suitable for parallelism, so we have to work out properties for the quantification of possible numerical or mathematical methods. 
+
+\begin{equation} \label{formula:scalarVec}
+\vec{a} = \begin{bmatrix}
+a_{0} \\
+a_{1} \\
+\vdots \\
+a_{i} \\
+\vdots \\
+a_{N - 1} \\
+\end{bmatrix} ,\quad \vec{b} = \begin{bmatrix}
+b_{0} \\
+b_{1} \\
+\vdots \\
+b_{i} \\
+\vdots \\
+b_{N - 1} \\
+\end{bmatrix}
+\end{equation}
+
+The easiest way to do that is to take a look an two basic examples. The first one will be a simple scalar product of two \textit{N} dimensional vectors $\vec{a}$ and $\vec{b}$ [see formula \ref{formula:scalarVec}]. Both vectors have the same dimension \textit{N} and are not orthogonal to each other; otherwise the scalar product would be very simple to calculate and the result null, regardless of the dimension of the vectors. The scalar product of two N dimensional vectors are defined as
+
+\begin{equation} \label{formula:scalarProdEasy}
+	s = \vec{a} \cdot \vec{b} = a_0 \cdot b_0 + a_1 \cdot b_1 + \quad \cdots \quad + a_{N - 1} \cdot b_{N - 1}
+\end{equation}
+
+\noindent or more formally like
+
+\begin{equation} \label{formula:scalarProd}
+	s = \sum_{i=0}^{N - 1} a[i] \cdot b[i]
+\end{equation}
+
+\newpage
+
+As mentioned in formula \ref{formula:scalarProdEasy}, theoretically any kind of scalar product can be easily calculated in parallel using \textit{N} processor cores or tasks. We even don't have to take care about accessing resources, because all tasks will use their one values depending on the index of the vectors. Only in the end, the final result has to be calculated including the sub results, which are returned from the different tasks.
+
+But to keep it simple, we will only separate the given scalar product [see formula \ref{formula:scalarProd}] into to different tasks. A synonymous representation would be the following:
+
+\begin{align} \label{formula:scalarProdSeq}
+	\begin{aligned}
+		s &= \sum_{i = 0}^{N / 2 - 1} \left(a[i] \cdot b[i]\right) + \sum_{i = N / 2}^{N - 1} \left(a[i] \cdot b[i]\right)
+		\\ &=  \underbrace{\sum_{i = 0}^{N / 2 - 1} \left(a_{local}[i] \cdot b_{local}[i]\right)}_\text{p\textsubscript{0}} \qquad \vertarrowbox{+}{process communication} \qquad \underbrace{\sum_{i = N / 2}^{N - 1} \left(a_{local}[i] \cdot b_{local}[i]\right)}_\text{p\textsubscript{1}}
+	\end{aligned}
+\end{align}
+
+The important sign in formula \ref{formula:scalarProdSeq} is the ``+''. It seems inconspicuous, but in fact, this is the the one we have to take care about most. The ``+'' symbol indicates required ``communication between the processes'' \parencite[see][p]{internet2} p\textsubscript{0} and p\textsubscript{1}.
 
 \newpage
 
@@ -237,6 +282,8 @@ Instruction stream defines the sequence of instructions performed by CPU, as in 
 \newpage
 
 \subsection{Types of Parallelism}\label{subchap:typesOfParallelism}
+<<<<<<< HEAD
+=======
 Parallel computing is used for multiple processing elements simultaneously to solve any type of problem, as it's already explained in [\ref{chap:parallelCompArch}].
 
 The Parallel Computing is evolved from serial computing that attempts to emulate what has always been the state of affairs in natural World.
@@ -255,17 +302,12 @@ Types of Parallelism:
 \end{enumerate}   
 
 \textbf{Thread-level parallelism} is the only way to execute independent programs or discrete parts of a single program,simultaneously, using different sources of execution, called threads.
+>>>>>>> 49f3f2a7270328551412a189c1c8f9e54b00405c
 
 
 \section{Parallel Programming Models}\label{chap:parPrgModels}
 
-\textbf{Steps to evaluate a proper parallel design} \parencite[see][p6]{article6}:
-\begin{enumerate}
-	\item Finding Concurrency
-	\item Algorithm Structure
-	\item Supporting Structures
-	\item Implementation Mechanisms
-\end{enumerate}
+...
 
 \newpage
 
