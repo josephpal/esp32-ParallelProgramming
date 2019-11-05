@@ -131,7 +131,10 @@ design for concurrency \parencite[see][p4]{article6}
 \newpage
 
 \section{Parallel Computer Architecture}
-
+The terminology of computer architecture was invented in 1960s by the designers of IBM System to describe the structure of a computer. Computer architect’s task is to write an suitable program code for the machine,keeping in mind everytime this structure of computer, understanding all the factors like state-of-the-art technologies at each design level and changing those designs tradeoffs for their specific applications.\
+Parallel computing means the situation where tasks are separated into discrete parts that can be executed concurrently. Each part is diffused into a larger series of instructions which will be executed simultaneously on different CPUs. These kind of parallel systems have to deal with the simultaneous use of multiple computer resources that can can include either a single computer with multiple CPUs, ori a number of computers connected by a network creating a parallel processing cluster or combination of both.\
+The crux of parallel processing are CPUs. Based on the number of instruction and data streams that can be processed simultaneously, computing systems are classified into four major categories based on Flynn’s Taxonomy.
+\\
 ...\parencite[see][p9]{book1} \\
 ...examples of parallelism \parencite[see][p11]{book1} \\
 ...links 1) \\
@@ -139,7 +142,17 @@ design for concurrency \parencite[see][p4]{article6}
 
 
 \subsection{Flynn's Taxonomy of Parallel Architectures}
-
+Flynn’s classification was first elaborated and proposed by Michael Flynn in 1966 and represents a scheme which is based on the notion of information stream. The term ‘stream’ defines a sequence or flow of either one of both existent types of information which flows and are operated into a processor: instructions or data. Instruction stream defines the sequence of instructions performed by CPU, as in the same time the data stream defines the data traffic exchanged between the memory and CPU.His taxonomy left aside the machine’s structure for classification of parallel computers and took over a whole new concept focusing on multiplicity of instructions and data streams observed by the CPU during the execution.\
+(IDK HOW TO MAKE A LIST)The major four categories are the followings:
+SISD (single-instruction,single-data) systems
+It designs an sequential computer which exploits no parallelism in either the instruction stream nor data stream.  An SISD computing system  is a uniprocessor machine capable of single stream executions.
+SIMD(single-instruction, multiple-data) systems
+It designs a multiprocessor machine capable of executing a single instruction stream on multiple different data streams. Instructions can be executed sequentially, such as by pipelining,  or in parallel by multiple functional units.
+MISD (multiple instruction streams, single data stream) systems
+It designs a multiprocessor machine capable of executing different instructions streams on the same data stream.  
+MIMD (multiple instruction streams, multiple data streams) 
+It designs a multiprocessor machine capable of executing multiple instructions streams on multiple data streams. This architectures include multi-core superscalar processors and distributed systems. 
+\\
 ...\parencite[see][p5]{internet1}\\
 ...\parencite[see][p13]{book1}\\
 ...\parencite[see][p4]{book5}\\
