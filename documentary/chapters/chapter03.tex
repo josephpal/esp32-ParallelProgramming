@@ -243,8 +243,24 @@ The prefix sum is defined as a partial sum of series of each the vector elements
 	y_i &= y_{i - 1} + x_i \\
 	\end{aligned}
 \end{align}
+\\[2pt]
+\noindent It is obvious that the prefix sum can be easily calculated in sequential with the last equation in [\ref{formula:prefixSumNonFormal}]. The resulting solution vector based on the input vector $\vec{x}$ [see formula \ref{formula:prefixVec}] should be represented in the following notation:\\
 
-\noindent It is obvious that the prefix sum can be easily calculated in sequential with the last equation in [\ref{formula:prefixSumNonFormal}]. 
+\begin{equation} \label{formula:prefixSumNonFormal}
+	\vec{y} = \begin{pmatrix}
+		x_{0} & x_{0} + x_{1} \quad \cdots \quad y_{i} \quad \cdots \quad & y_{N - 2} + x_{N-1} \\
+	\end{pmatrix}
+\end{equation}
+\\[2pt]
+To major problem with this computation is the fact, that each part result is dependent on the result before. A parallel computation is possible, but not like the implementation mentioned in [\ref{formula:scalarProdSeq}], because therefore no major decrease of execution time would be achieved. Indeed, there are some parallel solutions for the prefix sum, but with restrictions such as efficiency, span \parencite{article21} or less parallelism \parencite{article22}.\\
+
+\noindent To quantify parallel mathematical computation models, based on the examples which we worked out, the following three points should be taken into account:
+
+\begin{enumerate}
+	\item Divisibility of the calculation.
+	\item Independence of the sub task calculations.
+	\item Involvement of achievable work efficiency. 
+\end{enumerate}
 
 \newpage
 
