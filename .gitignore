@@ -7,4 +7,4 @@ research/
 *.run.xml
 *.gz
 *.toc
-documentary/*.pdf
+documentary/main.pdf
