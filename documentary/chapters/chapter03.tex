@@ -171,7 +171,7 @@ Regarding to Figure \ref{fig:compIndeDepConcurr} and Chapter \ref{chap:mathComp}
 
 \section{Definition of parallel mathematical computations}\label{chap:mathComp}
 
-We talked about how to quantifying parallelism, above that also about the principles of parallel computing and the resulting design patterns for parallel computing. Now its time to take into account the necessary mathematical computations. Not all calculations are suitable for parallelism, so we have to work out properties for the quantification of possible numerical or mathematical methods. 
+We talked about how to quantifying parallelism, and above that, also about the principles of parallel computing and the resulting design patterns for parallel computing. Now its time to take into account the necessary mathematical computations. Not all calculations are suitable for parallelism, so we have to work out properties for the quantification of possible numerical or mathematical methods. 
 
 \begin{equation} \label{formula:scalarVec}
 \vec{a} = \begin{bmatrix}
@@ -191,7 +191,7 @@ b_{N - 1} \\
 \end{bmatrix}
 \end{equation}
 
-The easiest way to do that is to take a look an two basic examples. The first one will be a simple scalar product of two \textit{N} dimensional vectors $\vec{a}$ and $\vec{b}$ [see formula \ref{formula:scalarVec}]. Both vectors have the same dimension \textit{N} and are not orthogonal to each other; otherwise the scalar product would be very simple to calculate and the result null, regardless of the dimension of the vectors. The scalar product of two N dimensional vectors are defined as
+The easiest way to do that is to take a look at two basic examples. The first one will be a simple scalar product of two \textit{N} dimensional vectors $\vec{a}$ and $\vec{b}$ [see formula \ref{formula:scalarVec}]. Both vectors have the same dimension \textit{N} and are not orthogonal to each other; otherwise the scalar product would be very simple to calculate and the result null, regardless of the dimension of the vectors. The scalar product of two N dimensional vectors are defined as
 
 \begin{equation} \label{formula:scalarProdEasy}
 	s = \vec{a} \cdot \vec{b} = a_0 \cdot b_0 + a_1 \cdot b_1 + \quad \cdots \quad + a_{N - 1} \cdot b_{N - 1}
@@ -205,7 +205,7 @@ The easiest way to do that is to take a look an two basic examples. The first on
 
 \newpage
 
-As mentioned in formula \ref{formula:scalarProdEasy}, theoretically any kind of scalar product can be easily calculated in parallel using \textit{N} processor cores or tasks. We even don't have to take care about accessing resources, because all tasks will use their one values depending on the index of the vectors. Only in the end, the final result has to be calculated including the sub results, which are returned from the different tasks.
+As mentioned in formula \ref{formula:scalarProdEasy}, theoretically any kind of scalar product can be easily calculated in parallel using \textit{N} processor cores or tasks. We even don't have to take care about accessing resources, because all tasks will use their one values depending on the index elements of the vectors. Only in the end, the final result has to be calculated including the results, which are returned from the different tasks.
 
 But to keep it simple, we will only separate the given scalar product [see formula \ref{formula:scalarProd}] into to different tasks. A synonymous representation would be the following:
 
@@ -216,7 +216,33 @@ But to keep it simple, we will only separate the given scalar product [see formu
 	\end{aligned}
 \end{align}
 
-The important sign in formula \ref{formula:scalarProdSeq} is the ``+''. It seems inconspicuous, but in fact, this is the the one we have to take care about most. The ``+'' symbol indicates required ``communication between the processes'' \parencite[see][p]{internet2} p\textsubscript{0} and p\textsubscript{1}.
+The important sign in formula \ref{formula:scalarProdSeq} is the ``+''. It seems inconspicuous, but in fact, this is the the one we have to take care about most. The ``+'' symbol indicates required ``communication between the processes'' \parencite[see][p]{internet2} p\textsubscript{0} and p\textsubscript{1}. So the essential part in every parallel computation will be collecting the sub results together. This could either be achieved by returning each result from the sub task to the main task or storing the sub result locally in memory, so it can be collected afterwards.
+
+The complex theory would categorize this kind of computation as a decision problem in the \textit{NC} class as a subset of \textit{P} \parencite{book8}. In general, all computations are stored in the \textit{P} class of decisions. \textit{NC} problems ``\textit{can be solved in parallel time (log n)\textsuperscript{O(1)} using n\textsuperscript{O(1)} processors}'' \parencite[see][Chapter 10, p91]{inbook1}. In other words, \textit{NC} problems can be solved in ``\textit{polylogarithmic time by using a polynomial number of processors}'' \parencite[see][Chapter 10, p91]{inbook1}. Furthermore they are also known as fast parallel working algorithms \parencite{inbook1} and in most of the cases as the most efficient ones \parencite{book8}.\\
+
+\noindent In comparison to a almost perfectly independent parallel computations, the question arises, whether a ``inherently sequential'' problem exists. This type of computations, due to the complex theory, belong to the class of \textit{P-complete} \parencite{inbook1} decisions and are also known as difficult to parallelize effectively or being solved in limited space. Regarding to \parencite{inbook1}, no ``real'' \textit{P-complete} problems exists, and considered to \parencite{book8}, sequential models are in fact parallelizable, but this comes ``\textit{at the cost of an enormous number of processors}'' \parencite[see][Chapter 5.5, p69]{book8}, resources or even execution time \parencite[see][p61]{book8}.
+
+So lets take a look at our second example, which might seems easily to compute, but in fact comes with a major bottleneck if we are trying to solve this kind of problem in parallel. The best known mathematical calculation to illustrate this is the prefix sum \parencite{article7}. Let's say we have a vector with N elements like mentioned underneath [see formula \ref{formula:prefixVec}]:
+
+\begin{equation} \label{formula:prefixVec}
+\vec{x} = \begin{pmatrix}
+	x_{0} & x_{1} \quad \cdots \quad x_{i} \quad \cdots \quad & x_{N - 1} \\
+\end{pmatrix}
+\end{equation}
+
+\newpage
+
+The prefix sum is defined as a partial sum of series of each the vector elements. A none formally expression is shown in the following formula [see \ref{formula:prefixSumNonFormal}].
+
+\begin{align} \label{formula:prefixSumNonFormal}
+	\begin{aligned}
+	y_0 &= x_0 \\
+	y_1 &= x_0 + x_1 \quad &= y_0 + x_1 \\
+	y_2 &= x_0 + x_1 + x_2 \quad &= y_1 + x_2 \\
+	\vdots \\
+	y_i &= y_{i - 1} + x_i \\
+	\end{aligned}
+\end{align}
 
 \newpage
 
