@@ -7,3 +7,5 @@ research/
 *.run.xml
 *.gz
 *.toc
+*.pdf
+!documentary/output/*.pdf
