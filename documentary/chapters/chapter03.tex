@@ -300,8 +300,12 @@ Types of Parallelism:
 	  \item {\textbf{Task/Thread parallelism}: This form of parallelism computing is designed to employ the subtasks fragments of a decompositioned task and then allocate the fragments subtasks for execution concurrently.} \parencite{book7}
 \end{enumerate}   
 
-\textbf{Thread-level parallelism} is the only way to execute independent programs or discrete parts of a single program,simultaneously, using different sources of execution, called threads.
+\textbf{Thread-level parallelism} is the only way to execute independent programs or discrete parts of a single program, simultaneously, using different sources of execution, like multiple processors sharing code, data and most of their address space, which are called threads.
+ 
+In these days the term thread is often used in a casual way to refer to multiple executions that may run on different processors, even if they don't share an address space. To take advantage of an MIMD multiprocessor with n processors, we must usually have at least n threads or processes to execute. The independent threads are typically identified by the programmer or created by the compiler. Since the parallelism in this situation is contained in the threads, it is called thread-level parallelism. This corresponding architectural organization is also called chip multiprocessing (CMP). An example for CMP is the placement of multiple independent execution cores with all execution resources onto a single processor chip. The resulting processors are called multicore processors.
 
+An alternative approach is the use of multithreading to execute multiple threads simultaneously ona single processor by switching between the different threads when needed by the hardware.
+\parencite{internet9}
 \section{Parallel Programming Models}\label{chap:parPrgModels}
 
 ...
