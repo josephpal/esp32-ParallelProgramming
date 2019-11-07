@@ -349,8 +349,15 @@ An alternative approach is the use of multithreading to execute multiple threads
 
 \section{Parallel Programming Models}\label{chap:parPrgModels}
 
-...
+A parallel programming model is defined as a set of program abstractions which helps application's parallel activities to fit to the underlying parallel hardware, spanning over layers like programming languages, compilers, libraries, network communications and input/output systems.
 
+Two widely known parallel programming models are shared memory and message passing, but there are also different combinations of both.
+
+In the {\textbf{shared memory} programming model, threads share a common address space, which they read and write in an asynchronous manner. The concept represents a semaphore or lock that is used for synchronization, when the situation that more than one thread accesses the same data variable, the semaphore keeps data local to the processor and makes private copies avoiding expensive memory accesses. In the case of multiple processors sharing the same data with writing possibility, it needs some mechanisms of coherence maintenance.
+	
+In the {\textbf{message passing} programming model, threads used to communicate via message exchange having private memories. For message exchanging, each sends operation needs to have a corresponding receive operation. Threads are not constrained to exist on te same physical machine. 
+	
+A suitable mixture of these two models is appropiate. Processors cand directly access memory on another processor. This is achieved via message passing, but what the programmer actually sees is shared-memory model.
 \subsection{Classification of Parallel Programming Models}
 
 \subsubsection{Process Interaction}
