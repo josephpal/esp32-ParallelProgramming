@@ -281,7 +281,7 @@ The crux of parallel processing are CPU's. Based on the number of instruction an
 	\label{fig:parallelismPipe}
 \end{figure}
 
-\subsection{Flynn's Taxonomy of Parallel Architectures}
+\subsection{Flynn's Taxonomy of Parallel Architectures}\label{subchap:flynnsTax}
 
 Flynn’s classification was first elaborated and proposed by Michael Flynn in 1966 and represents a scheme which is based on the notion of information stream. The term ‘stream’ defines a sequence or flow of either one of both existent types of information which flows and are operated into a processor: instructions or data. 
 
@@ -357,7 +357,8 @@ In the {\textbf{shared memory} programming model, threads share a common address
 	
 In the {\textbf{message passing} programming model, threads used to communicate via message exchange having private memories. For message exchanging, each sends operation needs to have a corresponding receive operation. Threads are not constrained to exist on te same physical machine. 
 	
-A suitable mixture of these two models is appropiate. Processors cand directly access memory on another processor. This is achieved via message passing, but what the programmer actually sees is shared-memory model.
+A suitable mixture of these two models is appropriate. Processors can directly access memory on another processor. This is achieved via message passing, but what the programmer actually sees is shared-memory model.
+
 \subsection{Classification of Parallel Programming Models}
 
 In general, models for parallel programming are distinguished according to their abstraction levels \parencite{book1}. Therefore, the models are basically divided into four different classes:
@@ -373,19 +374,30 @@ In general, models for parallel programming are distinguished according to their
 	
 	\item \underline{Computational model}:
 	
-	....
+	The model of computation is based on cost functions and a more formal model of a ``\textit{corresponding architectural model}'' \parencite[see][p106]{book1}. It also takes execution time along side with the providing of resources regarding to an architectural model into account \parencite{book1}. Analytical methods for designing and evaluating algorithms are also part of this model to quantify proper computations as we already mentioned in Chapter \ref{chap:mathComp}.
+	
+	\newpage
 	
 	\item \underline{Programming model}:
 	
-	... 
+	The highest level of abstraction is the programming model.
+	A description here is based on ``\textit{the semantics of the programming language or programming environment}'' \parencite[see][p106]{book1} to specify parallel programs. Therefore, a computation is mainly separated into ``\textit{(i) a sequence of instructions performing arithmetic or logical operations, (ii) a sequence of statements where each statement may capture several instructions, or (iii) a function or method invocation which typically consists of several statements}'' \parencite[see][p106]{book1}.
 \end{enumerate}
 
-\noindent Based on the different types of models, to major group of model classification should also be discussed.
+\noindent Based on the different types of models, two major group of model classification should also be discussed.
 
 \subsubsection{Process Interaction}
 
-...\parencite[see][p4]{internet1}
+Non independent parallel computations need synchronization and communication to exchange data or for notification purposes. The model of process interaction wants to provide possibilities to deal with that kind of problem \parencite[see][p4]{internet1}. In general, we distinguish between three different process interaction models: the first one is called Shared address space programming (shared memory) \parencite{internet1}. In this model, parallel processes are able to share data asynchronously through a global address space. In this case, the programmer has to aware of race conditions, when two processes want to have access to the same resource. In this case mutex, semaphore or locks are used.
+
+The second one is the Message Passing model. It describes a point to point connection between two tasks, to ensure synchronously ore asynchronously communication. The aim of this programming model is to point out the ability to invoke code to run not by calling a function, rather than by a process.
+
+Performing parallelism is also possible by compiler. In this case, not the programmer is responsible for the implementation itself. Regarding to the used programming language or the provided functions, parallelism will be achieved by an intelligent compiling process. This model is also known as Implicit Interaction \parencite{internet1}.
 
 \subsubsection{Problem decomposition}
 
-...\parencite[see][p105 ff.]{book1}
+In comparison to process interaction, problem decomposition provides independent parallel execution. Generally, three different types of models have to be discussed. First of all, as we already mentioned in Chapter \ref{subchap:typesOfParallelism}, task parallelism describes the basic method of threads, which contains assets of instructions or data. In addition to that, Flynn's Taxonomy usually classified this type of model as MIMD/MPMD or MISD [see Chapter \ref{subchap:flynnsTax}]. 
+
+In contrast to that, data parallelism focus on processing different sections of data, e.g. an array of elements [see Chapter \ref{chap:mathComp}]. Processing the data will be independent, so therefore no race conditions appear. Flynn's Taxonomy classified this type of model as MIMD/SPMD or SIMD [see Chapter \ref{subchap:flynnsTax}].
+
+Implicit parallelism is comparable to Implicit Interaction. The compiler and/or the hardware during runtime is responsible for parallelism. This can be achieved by translating serial into parallel code or by instruction-level parallelism [see Chapter \ref{subchap:typesOfParallelism}].
