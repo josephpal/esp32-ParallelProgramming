@@ -47,7 +47,7 @@ void setup() {
      *
      * 	duration -> number of maximal threads
      */
-    int durations = 16;
+    int durations = 32;
 
     /*
      *  results[]: array filled with the different execution times
@@ -96,7 +96,7 @@ void setup() {
 
     for (int j = 0; j < durations; ++j) {
 		Serial.print( j + 1 );
-		Serial.print("\t\t");
+  		Serial.print("\t");
 	}
 
     Serial.println("]");
@@ -139,7 +139,7 @@ void setup() {
 
 	for (int m = 0; m < durations; ++m) {
 		Serial.print( (m+1)%2 );
-		Serial.print("\t\t");
+		Serial.print("\t");
 	}
 
 	Serial.println("]");
@@ -154,5 +154,5 @@ void loop() {
 	 * 		delay(1000);
 	 */
 
-	//vTaskDelete(NULL);
+	vTaskDelete(NULL);
 }

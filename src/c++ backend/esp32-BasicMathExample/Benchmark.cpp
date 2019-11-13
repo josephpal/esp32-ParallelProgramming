@@ -11,7 +11,7 @@ void producerTask(void * params) {
 	Computation *comp = (Computation*) params;
 
 	comp->compute();
-	//yield();
+	yield();
 
 	delete comp;
 
@@ -126,7 +126,7 @@ float Benchmark::runWith(int numOfThreads, int numOfCycles) {
 			/*
 			 * 	regarding to src [3]: "For the last argument, the value is specified in ticks, and we will
 			 * 						   pass the value portMAX_DELAY, meaning that we will wait indefinitely
-			 * 						   in case the queue is full."
+			 * 						   in case the queue is fullor we receive an message object."
 			 *
 			 * 	So this function call is a blocking call and the current (main) thread will wait until he received a new message
 			 * 	from the queue. In this case, we can add the current part result to the main result:
@@ -164,4 +164,3 @@ float Benchmark::runWith(int numOfThreads, int numOfCycles) {
 
 	return average / numOfCycles;
 }
-
