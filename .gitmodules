@@ -1,0 +1,3 @@
+[submodule "src/vuejs frontend/vuejs-graphview-esp32"]
+	path = src/vuejs frontend/vuejs-graphview-esp32
+	url = https://github.com/josephpal/vuejs-graphview-esp32
