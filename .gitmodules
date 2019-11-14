@@ -1,3 +1,6 @@
 [submodule "src/vuejs frontend/vuejs-graphview-esp32"]
 	path = src/vuejs frontend/vuejs-graphview-esp32
 	url = https://github.com/josephpal/vuejs-graphview-esp32
+[submodule "src/c++ backend/esp32-BasicParallelProcessing"]
+	path = src/c++ backend/esp32-BasicParallelProcessing
+	url = https://github.com/josephpal/esp32-BasicParallelProcessing
