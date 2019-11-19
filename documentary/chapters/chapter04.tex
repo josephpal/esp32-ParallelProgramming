@@ -6,13 +6,13 @@
 
 ...\newpage
 
-\section{Simple mathematical computation examples for Parallel Programming}
+\section{Simple mathematical computation examples for Parallel Programming} \label{chap:simpleMathCompParallel}
 
 As a first example, which we try to implement on our ESP32, we will discuss a similar computation as already mentioned in Chapter \ref{chap:mathComp}. In formula \ref{formula:scalarProdSeq}, we have pointed out that the computation of a simple scalar product of two vectors with the same dimension \textit{N} can be split into several sub task \textit{p}. Our modified version is based on two sums. The outer one will iterate [index \textit{i}, see formula \ref{formula:twoLoopSum}] from zero to an upper limit \textit{N\textsubscript{1}} and sum up the result from the inner sum, which will perform a sum from 0 to \textit{N\textsubscript{2}} [index \textit{j}, see formula \ref{formula:twoLoopSum}] over a multiplication of \textit{i} and \textit{j}. The following formula represent the announced mathematical problem:
 
 \begin{align} \label{formula:twoLoopSum}
 	\begin{aligned}
-	s &= \sum_{i = 0}^{i} \left( \sum_{j = 0}^{j} \left(i \cdot j\right) \right)
+	s &= \sum_{i = 0}^{N_1} \left( \sum_{j = 0}^{N_2} \left(i \cdot j\right) \right)
 	\end{aligned}
 \end{align}
 \
@@ -31,22 +31,162 @@ To process the problem in parallel, it is only possible to seperate the outer su
 \end{align}
 \
 
-For collecting the part results from the parallel computed sums, some sort of process communication between the threads is necessary, more then, its impossible without it. But actually, this is the task, we have to take care about most. Otherwise we will run into race conditions while addressing same resources or even blocking methods, which will result in wrong execution time measurements.
+For collecting the part results from the parallel computed sums, some sort of process communication [see formula \ref{formula:twoLoopSumParallel}] between the threads is necessary, more then, its impossible without it. But actually, this is the task, we have to take care about most. Otherwise we will run into race conditions while addressing same resources or even blocking methods, which will result in wrong execution time measurements.
+
+As mentioned in Chapter \ref{chap:parPrgModels}, a common solution to communicate between threads running on different cores is using the \textbf{Message Passing Model} [for more details, see Chapter \ref{subsection:processInteraction}]. Our aim is to pass the computed part results to a main ``actor'', which will collect the part sums to calculate the final result. Furthermore, for bench marking this setup, we will implement a time measurement mechanism to evaluate the decrease of execution time running the computation on one or both cores. 
+
+Formula \ref{formula:twoLoopSumParallel} is theoretically not limited to the dedicated number of cores, which the hardware platform offers. Each core can handle multiple threads, but in this case, we would left real time parallelism, because each core now has to handle multiple threads by the scheduler. Every thread on each core will be given some execution time between switching the context to the next one. An overall speedup is not guaranteed with this method.   
 
 \newpage
 
 \subsection{UML diagram}
 
-\begin{figure}[htbp]
-	\centerline{\includegraphics[width=.6\linewidth]{images/Benchmark-UML.pdf}}
-	\caption{ UML class diagram of the Benchmark object }
-	\label{fig:benchUML}
-\end{figure}
+This little mathematical example can be found on our GitHub repository \parencite{internet12} and is basically split into three parts. The main \textit{*.ino} file, and two classes, the \textit{Computation.h} and the \textit{Benchmark.h}. 
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[width=.6\linewidth]{images/Computation-UML.pdf}}
-	\caption{ UML class diagram of the Computation object }
-	\label{fig:compUML}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centerline{\includegraphics[width=1\linewidth]{images/Benchmark-UML.pdf}}
+		\caption{ UML diagram Benchmark.h class }
+		\label{fig:benchUML}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centerline{\includegraphics[width=1\linewidth]{images/Computation-UML.pdf}}
+		\caption{ UML diagram Computation.h class }
+		\label{fig:compUML}
+	\end{subfigure}
+	\caption{Overview over both main implementations regarding Chapter \ref{chap:simpleMathCompParallel}}
+	\label{fig:umlDiagrBasicExample}
+\end{figure}
+
+\subsection{Implementation}
+
+The \textit{Benchmark.h} class has several functions to set the necessary parameters to start a benchmark like mentioned at the end of Chapter \ref{chap:simpleMathCompParallel}. The computational problem discussed in formula \ref{formula:twoLoopSumParallel} is implemented in \textit{Computation.h} class regarding to the following function.
+
+\begin{lstlisting}
+void Computation::compute() {
+	long count = 0;
+
+	for (int i = getStartOne(); i < getEndOne(); i++) {
+		for (int j = getStartTwo(); j < getEndTwo(); j++) {
+			count += i * j;
+		}
+	}
+
+	/* process communication */
+	
+	xQueueSend(*queue, &count, portMAX_DELAY);
+}
+\end{lstlisting}
+
+It is obvious, based on simple mathematical rules, that the outer sum, which is implemented through the outer for-loop, is divisible by limiting the thresholds, the inner sum unfortunately isn't. So for each part sum it's necessary to calculate the limits, on which each task has to compute their part sum results \parencite[see][Benchmark.h, line 94 ff.]{internet12}.
+
+\newpage
+
+\noindent To start the benchmark, we have to include the \textit{Benchmark.h} header file, and create an object of it. In the constructor, it is necessary to specify the amount of duration's per cycle (for averaging the result), the time to wait until the next benchmark execution will be started and the queue size.
+
+\begin{lstlisting}
+Benchmark bench(1, 1500, 8);
+
+for (int i = 0; i < numOfRunningThreads; ++i) {
+	results[i] = new float(bench.performBenchmark(i + 1));
+}
+\end{lstlisting}
+
+The queue size represents the maximum number of threads, which can be executed in parallel, because each thread has to return the result to the main thread; this is done by a ESP32 specific \textit{QueueHandle\_t} message passing model between tasks. Keep in mind, that this has an major effect of the available stack or heap size, and of course on the maximum amount of created threads [for more information about the \textit{QueueHandle\_t} thread communication, see \textit{Benchmark.h} line 99 ff.].\\
+
+\noindent So let's become more concretely: We start for our outer for-loop [see formula \ref{formula:twoLoopSumParallel}] with \textit{i} from 0 to \textit{N\textsubscript{1}} equals 50000. Our inner for-loop has it's limit at \textit{N\textsubscript{2}} = 10000. If we now want to split this computation into four separated tasks, two on core 0 () and two on core 1 (). The new limits for the part sums can be calculated using the formula below:
+
+\begin{lstlisting}[label={code:calcLimits}]
+float Benchmark::runWith(int numOfThreads) {
+	...
+	
+	for (int k = 0; k < numOfThreads; k++) {
+	
+		/* outer sum i = 0 ... N1 */
+		int lowLimSum = (50000 / numOfThreads) * k;
+		int uppLimSum = (50000 / numOfThreads) * (k + 1);
+		
+		/* inner sum j = 0 ... N2 */
+		int uppLimMul = 10000;
+	
+		if(50000 % numOfThreads != 0 && k == numOfThreads - 1) {
+			uppLimSum += (50000 % numOfThreads);
+		}
+	
+		c[k] = new Computation(	lowLimSum, uppLimSum, 
+								0, uppLimMul, *queue );
+		
+		...
+	}
+}
+\end{lstlisting}
+
+Our new limits for the part sums are now the ones mentioned in formula \ref{formula:partSums} and are summed up in table \ref{table:partSumLimits}.
+
+\newpage
+
+\begin{align} \label{formula:partSums}
+	\begin{aligned}
+		s_a &= \sum_{i = 0}^{12499} \left( \sum_{j = 0}^{10000} \left(i \cdot j\right) \right) &, 
+		s_b &= \sum_{i = 12500}^{24999} \left( \sum_{j = 0}^{10000} \left(i \cdot j\right) \right) \\
+		s_c &= \sum_{i = 25000}^{37499} \left( \sum_{j = 0}^{10000} \left(i \cdot j\right) \right) &, 
+		s_d &= \sum_{i = 37500}^{50000} \left( \sum_{j = 0}^{10000} \left(i \cdot j\right) \right)
+	\end{aligned}
+\end{align}\\
+
+\noindent The implementation of the part sum limits is a little bit different to the mathematical description regarding formula \ref{formula:partSums}, because we are using for-loops and to determine the end of the sum, we are using a ``\textit{less than}'' operator. So therefore the threshold limits can be found in the table below.
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ | m{3cm} | m{3cm} | m{3cm} | m{3cm} |  }
+		\hline
+		\multicolumn{4}{|c|}{Part sum limits} \\
+		\hline
+			Thread t\textsubscript{1} on core p\textsubscript{0} & 
+			Thread t\textsubscript{2} on core p\textsubscript{1} &
+			Thread t\textsubscript{3} on core p\textsubscript{0} &
+			Thread t\textsubscript{4} on core p\textsubscript{1} \\
+		\hline
+			i = 0 & i = 12500 & i = 25000 & i = 37500 \\
+			\vdots & \vdots & \vdots & \vdots \\
+			i \textless 12500 & i \textless 25000 & i \textless 37500 & i \textless 50000 \\
+		\hline
+	\end{tabular}
+	\caption{ Overview over the separated for-loop sum limits for four threads }
+	\label{table:partSumLimits}
+\end{table}
+
+But what happened if we have an odd number of threads? Well in this case, the \textit{Benchmark.h} class handle the issue, too. The upper limit will be divided into even part sum limits and for the last thread, the upper limit consists of the even upper limit plus the rest until he reaches 50000. This is down by and if clause and a ``\textit{modulo}'' operator [see \ref{code:calcLimits}]. After determine the necessary limits and amount of threads, we are no able to create the tasks and assign them to a dedicated core. As mentioned before, real time parallelism can only be achieved by using the exact or less number of cores. 
+
+\begin{lstlisting}[label={code:createThreads}]
+for (int j = 0; j < numOfThreads; j++) {
+	...
+	
+	c[j] = new Computation(	lowLimSum, uppLimSum, 
+							0, uppLimMul, *queue );
+
+	xTaskCreatePinnedToCore(
+		producerTask,
+		(j+1)%2 ==  0 ? "calcTask0" : "calcTask1",
+		sizeof(c[j]) * 32 * 8,
+		c[j],
+		0,
+		NULL,
+		(j+1)%2 );
+}
+\end{lstlisting}  
+
+\newpage
+
+\subsection{Implementation of the Message Passing Model}
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=1.1\linewidth]{images/Split-Sum-Message-Passing.pdf}}
+	\caption{ ...  }
+	\label{fig:splitSumOverview}
 \end{figure}
 
 \newpage

@@ -324,40 +324,27 @@ Instruction stream defines the sequence of instructions performed by CPU, as in 
 
 Parallel computing is used for multiple processing elements simultaneously to solve any type of problem, as it's already explained in [\ref{chap:parallelCompArch}].
 
-The Parallel Computing is evolved from serial computing that attempts to emulate what has always been the state of affairs in natural World.
-Advantages of Parallel Computing over Serial Computing:
-\begin{enumerate}
-			\item {It saves time and money as many resources working together will reduce the time and cut potential costs.}
-			\item {It can be impractical to solve larger problems on Serial Computing.}
-			\item {It can take advantage of non-local resources when the local resources are finite.}
-			\item {Serial Computing ‘wastes’ the potential computing power, thus Parallel Computing makes better work of hardware.}
-\end{enumerate}
+The Parallel Computing is evolved from serial computing that attempts to emulate what has always been the state of affairs in natural World. Parallel Computing saves in comparison to Serial Computing time and money as many resources working together will reduce the time and cut potential costs. Furthermore it can be impractical to solve larger problems on Serial Computing.
 
-\noindent Beside the advantages for parallel computing, the different types of Parallelism are listed as the followings:
+Beside the advantages for parallel computing, the different types of Parallelism are listed as the followings:
 
 \begin{enumerate}
 	 \item {\textbf{Bit-level parallelism}: This form of parallelism computing have it's roots based in the concept of increasing the processor's size. The amount of instructons it's reduced that the system must execute in order to perform a task on large-sized data.}
 	 \item {\textbf{Instruction-level parallelism}: This form of parallelism computing is designed for a processor to only address less than one instruction for each clock cycle phase. The instructions can be re-ordered and grouped which are later on executed concurrently without affecting the result of the program.}
-	  \item {\textbf{Task/Thread parallelism}: This form of parallelism computing is designed to employ the subtasks fragments of a decompositioned task and then allocate the fragments subtasks for execution concurrently} \parencite{book7}.
+	  \item {\textbf{Task/Thread parallelism}: This form of parallelism computing is designed to employ the sub tasks fragments of a decompositioned task and then allocate the fragments sub tasks for execution concurrently} \parencite{book7}.
 \end{enumerate}   
 
 \noindent \textbf{Thread-level parallelism} is the only way to execute independent programs or discrete parts of a single program, simultaneously, using different sources of execution, like multiple processors sharing code, data and most of their address space, which are called threads.
  
-In these days the term thread is often used in a casual way to refer to multiple executions that may run on different processors, even if they don't share an address space. To take advantage of an MIMD multiprocessor with n processors, we must usually have at least n threads or processes to execute. The independent threads are typically identified by the programmer or created by the compiler. Since the parallelism in this situation is contained in the threads, it is called thread-level parallelism. This corresponding architectural organization is also called chip multiprocessing (CMP). An example for CMP is the placement of multiple independent execution cores with all execution resources onto a single processor chip. The resulting processors are called multicore processors.
+In these days the term thread is often used in a casual way to refer to multiple executions that may run on different processors, even if they don't share an address space. To take advantage of an MIMD multiprocessor with n processors, we must usually have at least n threads or processes to execute. The independent threads are typically identified by the programmer or created by the compiler. Since the parallelism in this situation is contained in the threads, it is called thread-level parallelism. This corresponding architectural organization is also called chip multiprocessing (CMP). An example for CMP is the placement of multiple independent execution cores with all execution resources onto a single processor chip. The resulting processors are called multi-core processors.
 
-An alternative approach is the use of multithreading to execute multiple threads simultaneously ona single processor by switching between the different threads when needed by the hardware \parencite{internet9}.
+An alternative approach is the use of multi-threading to execute multiple threads simultaneously ona single processor by switching between the different threads when needed by the hardware \parencite{internet9}.
+
+\newpage
 
 \section{Parallel Programming Models}\label{chap:parPrgModels}
 
 A parallel programming model is defined as a set of program abstractions which helps application's parallel activities to fit to the underlying parallel hardware, spanning over layers like programming languages, compilers, libraries, network communications and input/output systems.
-
-Two widely known parallel programming models are shared memory and message passing, but there are also different combinations of both.
-
-In the {\textbf{shared memory} programming model, threads share a common address space, which they read and write in an asynchronous manner. The concept represents a semaphore or lock that is used for synchronization, when the situation that more than one thread accesses the same data variable, the semaphore keeps data local to the processor and makes private copies avoiding expensive memory accesses. In the case of multiple processors sharing the same data with writing possibility, it needs some mechanisms of coherence maintenance.
-	
-In the {\textbf{message passing} programming model, threads used to communicate via message exchange having private memories. For message exchanging, each sends operation needs to have a corresponding receive operation. Threads are not constrained to exist on te same physical machine. 
-
-A suitable mixture of these two models is appropiate. Processors cand directly access memory on another processor. This is achieved via message passing, but what the programmer actually sees is shared-memory model \parencite{internet10}.
 
 \subsection{Classification of Parallel Programming Models}
 
@@ -376,8 +363,6 @@ In general, models for parallel programming are distinguished according to their
 	
 	The model of computation is based on cost functions and a more formal model of a ``\textit{corresponding architectural model}'' \parencite[see][p106]{book1}. It also takes execution time along side with the providing of resources regarding to an architectural model into account \parencite{book1}. Analytical methods for designing and evaluating algorithms are also part of this model to quantify proper computations as we already mentioned in Chapter \ref{chap:mathComp}.
 	
-	\newpage
-	
 	\item \underline{Programming model}:
 	
 	The highest level of abstraction is the programming model.
@@ -386,11 +371,15 @@ In general, models for parallel programming are distinguished according to their
 
 \noindent Based on the different types of models, two major group of model classification should also be discussed.
 
-\subsubsection{Process Interaction}
+\newpage
 
-Non independent parallel computations need synchronization and communication to exchange data or for notification purposes. The model of process interaction wants to provide possibilities to deal with that kind of problem \parencite[see][p4]{internet1}. In general, we distinguish between three different process interaction models: the first one is called Shared address space programming (shared memory) \parencite{internet1}. In this model, parallel processes are able to share data asynchronously through a global address space. In this case, the programmer has to aware of race conditions, when two processes want to have access to the same resource. In this case mutex, semaphore or locks are used \parencite{internet11}.
+\subsubsection{Process Interaction} \label{subsection:processInteraction}
 
-The second one is the Message Passing model. It describes a point to point connection between two tasks, to ensure synchronously ore asynchronously communication. The aim of this programming model is to point out the ability to invoke code to run not by calling a function, rather than by a process \parencite{internet11}.
+Non independent parallel computations need synchronization and communication to exchange data or for notification purposes. The model of process interaction wants to provide possibilities to deal with that kind of problem \parencite[see][p4]{internet1}. In general, we distinguish between three different process interaction models: the first one is called Shared address space programming (shared memory) model \parencite{internet1}. In the {\textbf{shared memory} programming model, threads share a common address space, which they read and write in an asynchronous manner. The concept represents a semaphore or lock that is used for synchronization, when the situation that more than one thread accesses the same data variable, the semaphore keeps data local to the processor and makes private copies avoiding expensive memory accesses. In the case of multiple processors sharing the same data with writing possibility, it needs some mechanisms of coherence maintenance.
+	
+In the {\textbf{message passing} programming model, threads used to communicate via message exchange having private memories. For message exchanging, each sends operation needs to have a corresponding receive operation. Threads are not constrained to exist on te same physical machine. 
+
+A suitable mixture of these two models is appropriate. Processors can't directly access memory from another processor. This is achieved via message passing, but what the programmer actually sees is shared-memory model \parencite{internet10}.
 
 Performing parallelism is also possible by compiler. In this case, not the programmer is responsible for the implementation itself. Regarding to the used programming language or the provided functions, parallelism will be achieved by an intelligent compiling process. This model is also known as Implicit Interaction \parencite{internet1} \parencite{internet11}.
 

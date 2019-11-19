@@ -1,3 +1,20 @@
+%
+%	date:	19.11.2019
+%	author:	M. Belean, F.J. Pal
+%
+%	description:
+%
+%	src:	[1] https://tex.stackexchange.com/questions/37581/latex-figures-side-by-side
+%			[2] https://tex.stackexchange.com/questions/455993/formatting-sql-code/456018
+%			[3] https://tex.stackexchange.com/questions/68894/
+%				increase-space-between-listings-env-and-surrounding-text
+%			[4] https://tex.stackexchange.com/questions/130680/problem-with-m-in-tabular
+%			[5] https://tex.stackexchange.com/questions/2369/why-do-the-less-than-symbol-
+%				and-the-greater-than-symbol-appear-wrong-as
+%			[6]
+%			[7]
+%
+
 \documentclass[12pt, twoside]{report}
 \setcounter{secnumdepth}{3}
 
@@ -29,7 +46,48 @@
 
 \usepackage{fancyref}
 \usepackage{amsmath}
-%\usepackage{mathtools}
+
+\usepackage{subcaption}
+
+% code syntax
+
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{backgroundGray}{HTML}{f6f8fa}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+
+\newcommand\numberstyle[1]{%
+	\footnotesize
+	\color{codegray}%
+	\ttfamily
+	\ifnum#1<10 \fi#1 |%
+}
+
+\lstset {
+	language=C++,
+	backgroundcolor=\color{backgroundGray}, % set backgroundcolor
+	basicstyle=\footnotesize,				% basic font setting
+	framesep=8pt,
+	xleftmargin=40pt,
+	framexleftmargin=40pt,
+	frame=tb,
+	framerule=0pt,
+	numberstyle=\numberstyle,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=10pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=4,
+	aboveskip=20pt,
+	belowskip=20pt
+}
+
+% vertical arrow underneath a sign/digit with a textbox
 
 \newcommand\vertarrowbox[3][6ex]{%
 	\begin{array}[t]{@{}c@{}} #2 \\
@@ -38,6 +96,13 @@
 	\end{array}%
 }
 
+% table
+\usepackage{array}
+
+% ================================================================================================= %
+
+% title page
+
 \title{
 	{Parallel Programming on Embedded Multicore System ESP32\bigskip}\\
 	{\large Universitatea Politehnica Timișoara\bigskip\bigskip}\\
@@ -45,6 +110,8 @@
 }
 \author{ Marian Belean\\ Franz Joseph Pal }
 \date{ WS2019/2020 \\ \today}
+
+% main document
 
 \begin{document}
 
@@ -80,3 +147,5 @@
 %\nocite{*}
 
 \end{document}
+
+% ================================================================================================= %
