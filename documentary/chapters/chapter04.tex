@@ -2,7 +2,7 @@
 
 \subsection{Parallel Computing the Mandelbrot fractal}
 
-\subsection{Split up the picture}
+\subsection{Mechanism to divide the picture into sub areas}
 
 \subsection{Compression for reducing file size}
 
@@ -10,13 +10,9 @@
 
 ...\newpage
 
-\section{Project structure}
+\section{Simple mathematical computation example for Parallel Programming} \label{chap:simpleMathCompParallel}
 
-...\newpage
-
-\section{Simple mathematical computation examples for Parallel Programming} \label{chap:simpleMathCompParallel}
-
-As a first example, which we try to implement on our ESP32, we will discuss a similar computation as already mentioned in Chapter \ref{chap:mathComp}. In formula \ref{formula:scalarProdSeq}, we have pointed out that the computation of a simple scalar product of two vectors with the same dimension \textit{N} can be split into several sub task \textit{p}. Our modified version is based on two sums. The outer one will iterate [index \textit{i}, see formula \ref{formula:twoLoopSum}] from zero to an upper limit \textit{N\textsubscript{1}} and sum up the result from the inner sum, which will perform a sum from 0 to \textit{N\textsubscript{2}} [index \textit{j}, see formula \ref{formula:twoLoopSum}] over a multiplication of \textit{i} and \textit{j}. The following formula represent the announced mathematical problem:
+Before going into detail about the Mandelbrot computation, we will discuss as a first example a basic computation as already mentioned in Chapter \ref{chap:mathComp}. The reason we are doing that is to reduce complexity and to point out the main parts, we will need for the Mandelbrot computation as well. In formula \ref{formula:scalarProdSeq}, we have pointed out that the computation of a simple scalar product of two vectors with the same dimension \textit{N} can be split into several sub task \textit{p}. Our modified version is based on two sums. The outer one will iterate [index \textit{i}, see formula \ref{formula:twoLoopSum}] from zero to an upper limit \textit{N\textsubscript{1}} and sum up the result from the inner sum, which will perform a sum from 0 to \textit{N\textsubscript{2}} [index \textit{j}, see formula \ref{formula:twoLoopSum}] over a multiplication of \textit{i} and \textit{j}. The following formula represent the announced mathematical problem:
 
 \begin{align} \label{formula:twoLoopSum}
 	\begin{aligned}
@@ -41,9 +37,9 @@ To process the problem in parallel, it is only possible to seperate the outer su
 
 For collecting the part results from the parallel computed sums, some sort of process communication [see formula \ref{formula:twoLoopSumParallel}] between the threads is necessary, more then, its impossible without it. But actually, this is the task, we have to take care about most. Otherwise we will run into race conditions while addressing same resources or even blocking methods, which will result in wrong execution time measurements.
 
-As mentioned in Chapter \ref{chap:parPrgModels}, a common solution to communicate between threads running on different cores is using the \textbf{Message Passing Model} [for more details, see Chapter \ref{subsection:processInteraction}]. Our aim is to pass the computed part results to a main ``actor'', which will collect the part sums to calculate the final result. Furthermore, for bench marking this setup, we will implement a time measurement mechanism to evaluate the decrease of execution time running the computation on one or both cores. 
+As mentioned in Chapter \ref{chap:parPrgModels}, a common solution to communicate between threads running on different cores is using the \textbf{Message Passing Model} [for more details, see Chapter \ref{subsection:processInteraction}]. Our aim is to pass the computed part results to a main ``actor'', which will collect the part sums to calculate the final result. Furthermore, for bench-marking this setup, we will implement a time measurement mechanism to evaluate the decrease of execution time running the computation on one or both cores. 
 
-Formula \ref{formula:twoLoopSumParallel} is theoretically not limited to the dedicated number of cores, which the hardware platform offers. Each core can handle multiple threads, but in this case, we would left real time parallelism, because each core now has to handle multiple threads by the scheduler. Every thread on each core will be given some execution time between switching the context to the next one. An overall speedup is not guaranteed with this method.   
+Formula \ref{formula:twoLoopSumParallel} is theoretically not limited to the dedicated number of cores, which the hardware platform offers. Each core can handle multiple threads, but in this case, we would leave real time parallelism, because each core now has to handle multiple threads by the scheduler. Every thread on each core will be given some execution time between switching the context to the next one. An overall speedup is not guaranteed with this method.   
 
 \newpage
 
@@ -103,7 +99,7 @@ for (int i = 0; i < numOfRunningThreads; ++i) {
 
 The queue size represents the maximum number of threads, which can be executed in parallel, because each thread has to return the result to the main thread; this is done by a ESP32 specific \textit{QueueHandle\_t} message passing model between tasks. Keep in mind, that this has an major effect of the available stack or heap size, and of course on the maximum amount of created threads [for more information about the \textit{QueueHandle\_t} thread communication, see \textit{Benchmark.h} line 99 ff.].\\
 
-\noindent So let's become more concretely: We start for our outer for-loop [see formula \ref{formula:twoLoopSumParallel}] with \textit{i} from 0 to \textit{N\textsubscript{1}} equals 50000. Our inner for-loop has it's limit at \textit{N\textsubscript{2}} = 10000. If we now want to split this computation into four separated tasks, two on core 0 () and two on core 1 (). The new limits for the part sums can be calculated using the formula below:
+\noindent So let's become more concretely: We start for our outer for-loop [see formula \ref{formula:twoLoopSumParallel}] with \textit{i} from 0 to \textit{N\textsubscript{1}} equals 50000. Our inner for-loop has it's limit at \textit{N\textsubscript{2}} = 10000. If we now want to split this computation into four separated tasks, two on core 0 (t\textsubscript{1}, t\textsubscript{2}) and two on core 1 (t\textsubscript{3}, t\textsubscript{4}). The new limits for the part sums can be calculated using the formula below:
 
 \begin{lstlisting}[label={code:calcLimits}]
 float Benchmark::runWith(int numOfThreads) {
@@ -167,7 +163,7 @@ Our new limits for the part sums are now the ones mentioned in formula \ref{form
 	\label{table:partSumLimits}
 \end{table}
 
-But what happened if we have an odd number of threads? Well in this case, the \textit{Benchmark.h} class handle the issue, too. The upper limit will be divided into even part sum limits and for the last thread, the upper limit consists of the even upper limit plus the rest until he reaches 50000. This is down by and if clause and a ``\textit{modulo}'' operator [see \ref{code:calcLimits}]. After determine the necessary limits and amount of threads, we are no able to create the tasks and assign them to a dedicated core. As mentioned before, real time parallelism can only be achieved by using the exact or less number of cores. 
+But what happened if we have an odd number of threads? Well in this case, the \textit{Benchmark.h} class handle the issue, too. The upper limit will be divided into even part sum limits and for the last thread, the upper limit consists of the even upper limit plus the rest until he reaches 50000. This is done by an if clause and a ``\textit{modulo}'' operator [see \ref{code:calcLimits}]. After determine the necessary limits and amount of threads, we are now able to create the tasks and assign them to a dedicated core. As mentioned before, real time parallelism can only be achieved by using the exact or less number of cores. 
 
 \begin{lstlisting}[label={code:createThreads}]
 for (int j = 0; j < numOfThreads; j++) {
@@ -193,21 +189,52 @@ for (int j = 0; j < numOfThreads; j++) {
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=1.1\linewidth]{images/Split-Sum-Message-Passing.pdf}}
-	\caption{ ...  }
+	\caption{ Overview of the benchmark setup for the Computation example }
 	\label{fig:splitSumOverview}
 \end{figure}
 
+\noindent If we now want to compare results regarding running the Computation on different cores, or even with multiple threads, we have to implement a time measurement functionality. This is done by the \textit{Benchmark.h} class. Before starting a Computation, we are saving a time stamp, and after all part results are collected, we take another one. Basically the time needed performing the tasks is the delta time between those two time stamps. But this lead into one main problem: How can we determine we collected all results, because this is an asynchronous event. 
+
+Now our \textit{QueueHandle\_t} object will help once again. If we send back our results, the receiver will wait as long as a new object is pushed into the queue. As far as we know, we have to receive the passed \textit{numOfThreads} amount of part results. Combining these both examples will result into the following implementation:
+
+\begin{lstlisting}[label={code:queueReceive}]
+for (int k = 0; k < numOfThreads; k++) {
+	long partResult;
+
+	/* process communication -> receiving part results */
+	xQueueReceive(*queue, &partResult, portMAX_DELAY);
+
+	result += partResult;
+}
+\end{lstlisting}  
+
+The last parameter for the \textit{xQueueReceive} function defines how long the receiver should wait until he should give up waiting. This is now set to a macro defining to wait as long as possible or until the queue is full. The passed reference will be used to add it to the result sum.
+
 \newpage
 
-\section{Class diagramm}
+\section{Parallel Processing the Mandelbrot fractal}
+
+Basically, there are no huge differences between the \textit{Benchmark} we used for the \textit{Computation} and the one we need right now for performing the Mandelbrot. What changed are the class properties and instead of a \textit{Computation.h} class we have to include the \textit{Mandelbrot.h} class. For a graphical visualization we will use instead of the uart interface a webfronted hosted on the \textit{ESP32} itself, so after the \textit{Benchmark} is done, the micro controller will create a wireless network, on which the user can log into to call the frontend in the web browser.
+
+To handle all the different tasks and stages the \textit{ESP32} has to go through, we implemented a state machine.
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=1.1\linewidth]{images/State-Machine.pdf}}
+	\caption{ State machine implementation for handling the UI, Benchmark stages }
+	\label{fig:stateMachine}
+\end{figure}  
+
+Each state has its own set of parameters and will only switching the context to the next one if everything went fine. This is for preventing user errors by passing wrong arguments and to reduce runtime crashes. Nevertheless is its also necessary because the UI needs several running threads in th background as well and this would lower the overall performance of the \textit{ESP32}, which we actually need for the \text{Benchmark}.\\   
+
+\noindent The next chapter will now focus on the details of the C++ implementation of the \textit{Benchmark} for performing the Mandelbrot computation [see Chapter \ref{subsection:backend}]. Beside that, we will describe the frontend written in \textit{javascript}, especially the communication and data processing part [see Chapter \ref{subsection:frontend}]. 
+
+\newpage
+
+\subsection{C++ Backend benchmark} \label{subsection:backend}
 
 ...
 
-\subsection{C++ Backend benchmark}
-
-...
-
-\subsection{Vuejs Frontend}
+\subsection{Vuejs Frontend} \label{subsection:frontend}
 
 ...\newpage
 
